@@ -64,7 +64,7 @@
           <![CDATA[Nachricht wurde 
 empfangen]]>
           <graphics count="1">
-            <graphic xoff="76.00" x="756.00" y="540.00" id="873" net="1" show="1" grparent="874" state="1"/>
+            <graphic xoff="74.00" yoff="-15.00" x="754.00" y="525.00" id="873" net="1" show="1" grparent="874" state="1"/>
           </graphics>
         </attribute>
         <graphics count="1">
@@ -626,7 +626,7 @@ empfangen]]>
           <![CDATA[Nachricht wurde
 empfangen]]>
           <graphics count="1">
-            <graphic xoff="75.00" x="755.00" y="900.00" id="13462" net="1" show="1" grparent="13463" state="1"/>
+            <graphic xoff="115.00" yoff="-14.00" x="795.00" y="886.00" id="13462" net="1" show="1" grparent="13463" state="1"/>
           </graphics>
         </attribute>
         <graphics count="1">
