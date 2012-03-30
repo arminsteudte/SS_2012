@@ -855,9 +855,9 @@ empfangen]]>
           <graphics count="0"/>
         </attribute>
         <attribute name="Comment" id="16103" net="1">
-          <![CDATA[]]>
+          <![CDATA[Anzahl empfangener Nachrichten]]>
           <graphics count="1">
-            <graphic yoff="40.00" x="640.00" y="720.00" id="16104" net="1" show="1" grparent="16105" state="1"/>
+            <graphic xoff="-51.00" yoff="-20.00" x="589.00" y="660.00" id="16104" net="1" show="1" grparent="16105" state="1"/>
           </graphics>
         </attribute>
         <graphics count="1">
@@ -1249,7 +1249,7 @@ empfangen]]>
         <attribute name="Comment" id="13515" net="1">
           <![CDATA[empfange Nachricht]]>
           <graphics count="1">
-            <graphic xoff="-40.00" yoff="21.00" x="640.00" y="741.00" id="13518" net="1" show="1" grparent="13519" state="1"/>
+            <graphic xoff="-39.00" yoff="19.00" x="641.00" y="739.00" id="13518" net="1" show="1" grparent="13519" state="1"/>
           </graphics>
         </attribute>
         <graphics count="1">
@@ -1747,7 +1747,7 @@ empfangen]]>
         <attribute name="Multiplicity" id="8147" net="1">
           <![CDATA[1]]>
           <graphics count="1">
-            <graphic xoff="-0.00" yoff="-135.00" x="765.00" y="325.00" id="8148" net="1" show="1" grparent="8151" state="1"/>
+            <graphic yoff="-135.00" x="765.00" y="325.00" id="8148" net="1" show="1" grparent="8151" state="1"/>
           </graphics>
         </attribute>
         <attribute name="Comment" id="8149" net="1">
@@ -2044,7 +2044,7 @@ empfangen]]>
         <attribute name="Comment" id="13576" net="1">
           <![CDATA[]]>
           <graphics count="1">
-            <graphic xoff="-0.00" yoff="-595.00" x="765.00" y="205.00" id="13578" net="1" show="1" grparent="13579" state="1"/>
+            <graphic yoff="-595.00" x="765.00" y="205.00" id="13578" net="1" show="1" grparent="13579" state="1"/>
           </graphics>
         </attribute>
         <graphics count="1">
@@ -2266,7 +2266,7 @@ empfangen]]>
         <attribute name="Comment" id="13648" net="1">
           <![CDATA[Nachricht kommt an]]>
           <graphics count="1">
-            <graphic xoff="16.00" yoff="-13.00" x="566.00" y="707.00" id="13650" net="1" show="1" grparent="13651" state="1"/>
+            <graphic xoff="2.00" yoff="-12.00" x="552.00" y="708.00" id="13650" net="1" show="1" grparent="13651" state="1"/>
           </graphics>
         </attribute>
         <graphics count="1">
@@ -2508,7 +2508,7 @@ empfangen]]>
         <attribute name="Multiplicity" id="14648" net="1">
           <![CDATA[1]]>
           <graphics count="1">
-            <graphic xoff="30.36" yoff="20.66" x="771.20" y="441.03" id="14649" net="1" show="1" grparent="14652" state="1"/>
+            <graphic xoff="30.36" yoff="20.66" x="771.20" y="441.22" id="14649" net="1" show="1" grparent="14652" state="1"/>
           </graphics>
         </attribute>
         <attribute name="Comment" id="14650" net="1">
@@ -2530,7 +2530,7 @@ empfangen]]>
         <attribute name="Multiplicity" id="14983" net="1">
           <![CDATA[1]]>
           <graphics count="1">
-            <graphic xoff="30.36" yoff="20.66" x="771.20" y="781.03" id="14984" net="1" show="1" grparent="14987" state="1"/>
+            <graphic xoff="30.36" yoff="20.66" x="771.20" y="781.22" id="14984" net="1" show="1" grparent="14987" state="1"/>
           </graphics>
         </attribute>
         <attribute name="Comment" id="14985" net="1">
@@ -2777,13 +2777,13 @@ empfangen]]>
         <attribute name="Multiplicity" id="16062" net="1">
           <![CDATA[1]]>
           <graphics count="1">
-            <graphic xoff="20.00" yoff="0.00" x="241.46" y="481.46" id="16063" net="1" show="1" grparent="16066" state="1"/>
+            <graphic xoff="20.00" x="241.46" y="481.46" id="16063" net="1" show="1" grparent="16066" state="1"/>
           </graphics>
         </attribute>
         <attribute name="Comment" id="16064" net="1">
           <![CDATA[]]>
           <graphics count="1">
-            <graphic xoff="40.00" yoff="0.00" x="261.46" y="481.46" id="16065" net="1" show="1" grparent="16066" state="1"/>
+            <graphic xoff="40.00" x="261.46" y="481.46" id="16065" net="1" show="1" grparent="16066" state="1"/>
           </graphics>
         </attribute>
         <graphics count="1">
