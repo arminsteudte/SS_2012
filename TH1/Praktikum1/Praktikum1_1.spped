@@ -161,7 +161,7 @@ empfangen]]>
           <graphics count="0"/>
         </attribute>
         <attribute name="Comment" id="2879" net="1">
-          <![CDATA[Bestäitung erhalten]]>
+          <![CDATA[Bestätigung erhalten]]>
           <graphics count="1">
             <graphic xoff="-1.00" yoff="-23.00" x="119.00" y="477.00" id="2880" net="1" show="1" grparent="2881" state="1"/>
           </graphics>
@@ -524,7 +524,7 @@ empfangen]]>
           <graphics count="0"/>
         </attribute>
         <attribute name="Comment" id="13425" net="1">
-          <![CDATA[Bestäitung erhalten]]>
+          <![CDATA[Bestätigung erhalten]]>
           <graphics count="1">
             <graphic xoff="-1.00" yoff="-23.00" x="119.00" y="837.00" id="13429" net="1" show="1" grparent="13430" state="1"/>
           </graphics>

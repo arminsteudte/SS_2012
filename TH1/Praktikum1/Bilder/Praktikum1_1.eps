@@ -1,0 +1,2832 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: \Studium\Master\Repository\SS_2012\TH1\Praktikum1\Praktikum1_1.eps
+%%Creator: wxWindows PostScript renderer + Snoopy
+%%CreationDate: Sun Apr 01 18:25:45 2012
+%%Orientation: Portrait
+%%BoundingBox: 9 -119 861 835
+%%EndComments
+
+
+%%BeginProlog
+/conicto {
+    /to_y exch def
+    /to_x exch def
+    /conic_cntrl_y exch def
+    /conic_cntrl_x exch def
+    currentpoint
+    /p0_y exch def
+    /p0_x exch def
+    /p1_x p0_x conic_cntrl_x p0_x sub 2 3 div mul add def
+    /p1_y p0_y conic_cntrl_y p0_y sub 2 3 div mul add def
+    /p2_x p1_x to_x p0_x sub 1 3 div mul add def
+    /p2_y p1_y to_y p0_y sub 1 3 div mul add def
+    p1_x p1_y p2_x p2_y to_x to_y curveto
+}  bind def
+/ellipsedict 8 dict def
+ellipsedict /mtrx matrix put
+/ellipse {
+    ellipsedict begin
+    /endangle exch def
+    /startangle exch def
+    /yrad exch def
+    /xrad exch def
+    /y exch def
+    /x exch def
+    /savematrix mtrx currentmatrix def
+    x y translate
+    xrad yrad scale
+    0 0 1 startangle endangle arc
+    savematrix setmatrix
+    end
+    } def
+/ellipticarcdict 8 dict def
+ellipticarcdict /mtrx matrix put
+/ellipticarc
+{ ellipticarcdict begin
+  /do_fill exch def
+  /endangle exch def
+  /startangle exch def
+  /yrad exch def
+  /xrad exch def 
+  /y exch def
+  /x exch def
+  /savematrix mtrx currentmatrix def
+  x y translate
+  xrad yrad scale
+  do_fill { 0 0 moveto } if
+  0 0 1 startangle endangle arc
+  savematrix setmatrix
+  do_fill { fill }{ stroke } ifelse
+  end
+} def
+% define 'colorimage' if it isn't defined
+%   ('colortogray' and 'mergeprocs' come from xwd2ps
+%     via xgrab)
+/colorimage where   % do we know about 'colorimage'?
+  { pop }           % yes: pop off the 'dict' returned
+  {                 % no:  define one
+    /colortogray {  % define an RGB->I function
+      /rgbdata exch store    % call input 'rgbdata'
+      rgbdata length 3 idiv
+      /npixls exch store
+      /rgbindx 0 store
+      0 1 npixls 1 sub {
+        grays exch
+        rgbdata rgbindx       get 20 mul    % Red
+        rgbdata rgbindx 1 add get 32 mul    % Green
+        rgbdata rgbindx 2 add get 12 mul    % Blue
+        add add 64 idiv      % I = .5G + .31R + .18B
+        put
+        /rgbindx rgbindx 3 add store
+      } for
+      grays 0 npixls getinterval
+    } bind def
+
+    % Utility procedure for colorimage operator.
+    % This procedure takes two procedures off the
+    % stack and merges them into a single procedure.
+
+    /mergeprocs { % def
+      dup length
+      3 -1 roll
+      dup
+      length
+      dup
+      5 1 roll
+      3 -1 roll
+      add
+      array cvx
+      dup
+      3 -1 roll
+      0 exch
+      putinterval
+      dup
+      4 2 roll
+      putinterval
+    } bind def
+
+    /colorimage { % def
+      pop pop     % remove 'false 3' operands
+      {colortogray} mergeprocs
+      image
+    } bind def
+  } ifelse          % end of 'false' case
+
+/reencodeISO {
+dup dup findfont dup length dict begin
+{ 1 index /FID ne { def }{ pop pop } ifelse } forall
+/Encoding ISOLatin1Encoding def
+currentdict end definefont
+} def
+/ISOLatin1Encoding [
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/space/exclam/quotedbl/numbersign/dollar/percent/ampersand/quoteright
+/parenleft/parenright/asterisk/plus/comma/minus/period/slash
+/zero/one/two/three/four/five/six/seven/eight/nine/colon/semicolon
+/less/equal/greater/question/at/A/B/C/D/E/F/G/H/I/J/K/L/M/N
+/O/P/Q/R/S/T/U/V/W/X/Y/Z/bracketleft/backslash/bracketright
+/asciicircum/underscore/quoteleft/a/b/c/d/e/f/g/h/i/j/k/l/m
+/n/o/p/q/r/s/t/u/v/w/x/y/z/braceleft/bar/braceright/asciitilde
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/dotlessi/grave/acute/circumflex/tilde/macron/breve
+/dotaccent/dieresis/.notdef/ring/cedilla/.notdef/hungarumlaut
+/ogonek/caron/space/exclamdown/cent/sterling/currency/yen/brokenbar
+/section/dieresis/copyright/ordfeminine/guillemotleft/logicalnot
+/hyphen/registered/macron/degree/plusminus/twosuperior/threesuperior
+/acute/mu/paragraph/periodcentered/cedilla/onesuperior/ordmasculine
+/guillemotright/onequarter/onehalf/threequarters/questiondown
+/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/AE/Ccedilla
+/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/multiply/Oslash/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute
+/Thorn/germandbls/agrave/aacute/acircumflex/atilde/adieresis
+/aring/ae/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+/iacute/icircumflex/idieresis/eth/ntilde/ograve/oacute/ocircumflex
+/otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex/udieresis
+/yacute/thorn/ydieresis
+] def
+
+/DrawSplineSection {
+    /y3 exch def
+    /x3 exch def
+    /y2 exch def
+    /x2 exch def
+    /y1 exch def
+    /x1 exch def
+    /xa x1 x2 x1 sub 0.666667 mul add def
+    /ya y1 y2 y1 sub 0.666667 mul add def
+    /xb x3 x2 x3 sub 0.666667 mul add def
+    /yb y3 y2 y3 sub 0.666667 mul add def
+    x1 y1 lineto
+    xa ya xb yb x3 y3 curveto
+    } def
+%%EndProlog
+1.000000 setlinewidth
+[] 0 setdash
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+120 421 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+120 421 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+115 426 moveto
+126 426 lineto
+126 415 lineto
+115 415 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+newpath
+120 421 3 3 0 360 ellipse
+fill
+1.000000 setlinewidth
+newpath
+120 421 3 3 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+122 419 moveto
+120 419 lineto
+120 421 lineto
+122 421 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+99 453 moveto
+161 453 lineto
+161 438 lineto
+99 438 lineto
+closepath clip newpath
+99 446 moveto
+(Bereit 1) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+680 301 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+680 301 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+675 306 moveto
+686 306 lineto
+686 295 lineto
+675 295 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+newpath
+680 301 3 3 0 360 ellipse
+fill
+1.000000 setlinewidth
+newpath
+680 301 3 3 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+682 299 moveto
+680 299 lineto
+680 301 lineto
+682 301 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+696 330 moveto
+814 330 lineto
+814 301 lineto
+696 301 lineto
+closepath clip newpath
+696 323 moveto
+(Nachricht wurde ) show
+696 309 moveto
+(empfangen) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+420 421 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+420 421 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+415 426 moveto
+426 426 lineto
+426 415 lineto
+415 415 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+420 341 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+420 341 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+415 346 moveto
+426 346 lineto
+426 335 lineto
+415 335 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+120 341 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+120 341 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+115 346 moveto
+126 346 lineto
+126 335 lineto
+115 335 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+47 371 moveto
+193 371 lineto
+193 356 lineto
+47 356 lineto
+closepath clip newpath
+47 364 moveto
+(Best\344tigung erhalten) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+420 261 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+420 261 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+415 266 moveto
+426 266 lineto
+426 255 lineto
+415 255 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+433 270 moveto
+663 270 lineto
+663 255 lineto
+433 255 lineto
+closepath clip newpath
+433 263 moveto
+(verloren gegangene Best\344tigungen) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+420 521 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+420 521 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+415 526 moveto
+426 526 lineto
+426 515 lineto
+415 515 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+436 527 moveto
+652 527 lineto
+652 512 lineto
+436 512 lineto
+closepath clip newpath
+436 520 moveto
+(verloren gegangene Nachrichten) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+800 341 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+800 341 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+795 346 moveto
+806 346 lineto
+806 335 lineto
+795 335 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+680 541 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+680 541 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+675 546 moveto
+686 546 lineto
+686 535 lineto
+675 535 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+180 481 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+180 481 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+175 486 moveto
+186 486 lineto
+186 475 lineto
+175 475 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+newpath
+180 481 3 3 0 360 ellipse
+fill
+1.000000 setlinewidth
+newpath
+180 481 3 3 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+182 479 moveto
+180 479 lineto
+180 481 lineto
+182 481 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+180 121 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+180 121 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+175 126 moveto
+186 126 lineto
+186 115 lineto
+175 115 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+newpath
+180 121 3 3 0 360 ellipse
+fill
+1.000000 setlinewidth
+newpath
+180 121 3 3 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+182 119 moveto
+180 119 lineto
+180 121 lineto
+182 121 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+680 181 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+680 181 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+675 186 moveto
+686 186 lineto
+686 175 lineto
+675 175 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+800 -19 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+800 -19 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+795 -14 moveto
+806 -14 lineto
+806 -25 lineto
+795 -25 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+newpath
+800 -19 3 3 0 360 ellipse
+fill
+1.000000 setlinewidth
+newpath
+800 -19 3 3 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+802 -21 moveto
+800 -21 lineto
+800 -19 lineto
+802 -19 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+420 161 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+420 161 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+415 166 moveto
+426 166 lineto
+426 155 lineto
+415 155 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+438 168 moveto
+654 168 lineto
+654 153 lineto
+438 153 lineto
+closepath clip newpath
+438 161 moveto
+(verloren gegangene Nachrichten) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+420 -99 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+420 -99 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+415 -94 moveto
+426 -94 lineto
+426 -105 lineto
+415 -105 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+439 -89 moveto
+669 -89 lineto
+669 -104 lineto
+439 -104 lineto
+closepath clip newpath
+439 -96 moveto
+(verloren gegangene Best\344tigungen) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+120 -19 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+120 -19 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+115 -14 moveto
+126 -14 lineto
+126 -25 lineto
+115 -25 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+47 11 moveto
+193 11 lineto
+193 -4 lineto
+47 -4 lineto
+closepath clip newpath
+47 4 moveto
+(Best\344tigung erhalten) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+420 -19 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+420 -19 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+415 -14 moveto
+426 -14 lineto
+426 -25 lineto
+415 -25 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+420 61 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+420 61 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+415 66 moveto
+426 66 lineto
+426 55 lineto
+415 55 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+680 -59 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+680 -59 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+675 -54 moveto
+686 -54 lineto
+686 -65 lineto
+675 -65 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+newpath
+680 -59 3 3 0 360 ellipse
+fill
+1.000000 setlinewidth
+newpath
+680 -59 3 3 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+682 -61 moveto
+680 -61 lineto
+680 -59 lineto
+682 -59 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+740 -31 moveto
+851 -31 lineto
+851 -60 lineto
+740 -60 lineto
+closepath clip newpath
+740 -38 moveto
+(Nachricht wurde) show
+740 -52 moveto
+(empfangen) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+120 61 10 10 0 360 ellipse
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+120 61 10 10 0 360 ellipse
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+115 66 moveto
+126 66 lineto
+126 55 lineto
+115 55 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+46 68 moveto
+108 68 lineto
+108 53 lineto
+46 53 lineto
+closepath clip newpath
+46 61 moveto
+(Bereit 0) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+230 431 moveto
+250 431 lineto
+250 411 lineto
+230 411 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+230 431 moveto
+250 431 lineto
+250 411 lineto
+230 411 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+235 426 moveto
+246 426 lineto
+246 415 lineto
+235 415 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+192 406 moveto
+303 406 lineto
+303 391 lineto
+192 391 lineto
+closepath clip newpath
+192 399 moveto
+(sende Nachricht) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+410 491 moveto
+430 491 lineto
+430 471 lineto
+410 471 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+410 491 moveto
+430 491 lineto
+430 471 lineto
+410 471 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+415 486 moveto
+426 486 lineto
+426 475 lineto
+415 475 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+221 501 moveto
+388 501 lineto
+388 486 lineto
+221 486 lineto
+closepath clip newpath
+221 494 moveto
+(Nachricht geht verloren) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+670 431 moveto
+690 431 lineto
+690 411 lineto
+670 411 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+670 431 moveto
+690 431 lineto
+690 411 lineto
+670 411 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+675 426 moveto
+686 426 lineto
+686 415 lineto
+675 415 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+588 401 moveto
+720 401 lineto
+720 386 lineto
+588 386 lineto
+closepath clip newpath
+588 394 moveto
+(empfange Nachricht) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+190 351 moveto
+210 351 lineto
+210 331 lineto
+190 331 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+190 351 moveto
+210 351 lineto
+210 331 lineto
+190 331 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+195 346 moveto
+206 346 lineto
+206 335 lineto
+195 335 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+205 372 moveto
+344 372 lineto
+344 357 lineto
+205 357 lineto
+closepath clip newpath
+205 365 moveto
+(erhalte Best\344tigung) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+670 351 moveto
+690 351 lineto
+690 331 lineto
+670 331 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+670 351 moveto
+690 351 lineto
+690 331 lineto
+670 331 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+675 346 moveto
+686 346 lineto
+686 335 lineto
+675 335 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+628 376 moveto
+753 376 lineto
+753 361 lineto
+628 361 lineto
+closepath clip newpath
+628 369 moveto
+(sende Best\344tigung) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+410 311 moveto
+430 311 lineto
+430 291 lineto
+410 291 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+410 311 moveto
+430 311 lineto
+430 291 lineto
+410 291 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+415 306 moveto
+426 306 lineto
+426 295 lineto
+415 295 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+448 329 moveto
+629 329 lineto
+629 314 lineto
+448 314 lineto
+closepath clip newpath
+448 322 moveto
+(Best\344tigung geht verloren) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+170 551 moveto
+190 551 lineto
+190 531 lineto
+170 531 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+170 551 moveto
+190 551 lineto
+190 531 lineto
+170 531 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+175 546 moveto
+186 546 lineto
+186 535 lineto
+175 535 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+170 191 moveto
+190 191 lineto
+190 171 lineto
+170 171 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+170 191 moveto
+190 191 lineto
+190 171 lineto
+170 171 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+175 186 moveto
+186 186 lineto
+186 175 lineto
+175 175 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+410 -49 moveto
+430 -49 lineto
+430 -69 lineto
+410 -69 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+410 -49 moveto
+430 -49 lineto
+430 -69 lineto
+410 -69 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+415 -54 moveto
+426 -54 lineto
+426 -65 lineto
+415 -65 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+458 -34 moveto
+639 -34 lineto
+639 -49 lineto
+458 -49 lineto
+closepath clip newpath
+458 -41 moveto
+(Best\344tigung geht verloren) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+670 -9 moveto
+690 -9 lineto
+690 -29 lineto
+670 -29 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+670 -9 moveto
+690 -9 lineto
+690 -29 lineto
+670 -29 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+675 -14 moveto
+686 -14 lineto
+686 -25 lineto
+675 -25 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+636 14 moveto
+761 14 lineto
+761 -1 lineto
+636 -1 lineto
+closepath clip newpath
+636 7 moveto
+(sende Best\344tigung) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+190 -9 moveto
+210 -9 lineto
+210 -29 lineto
+190 -29 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+190 -9 moveto
+210 -9 lineto
+210 -29 lineto
+190 -29 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+195 -14 moveto
+206 -14 lineto
+206 -25 lineto
+195 -25 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+204 15 moveto
+343 15 lineto
+343 0 lineto
+204 0 lineto
+closepath clip newpath
+204 8 moveto
+(erhalte Best\344tigung) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+670 71 moveto
+690 71 lineto
+690 51 lineto
+670 51 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+670 71 moveto
+690 71 lineto
+690 51 lineto
+670 51 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+675 66 moveto
+686 66 lineto
+686 55 lineto
+675 55 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+569 45 moveto
+701 45 lineto
+701 30 lineto
+569 30 lineto
+closepath clip newpath
+569 38 moveto
+(empfange Nachricht) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+410 131 moveto
+430 131 lineto
+430 111 lineto
+410 111 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+410 131 moveto
+430 131 lineto
+430 111 lineto
+410 111 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+415 126 moveto
+426 126 lineto
+426 115 lineto
+415 115 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+438 128 moveto
+605 128 lineto
+605 113 lineto
+438 113 lineto
+closepath clip newpath
+438 121 moveto
+(Nachricht geht verloren) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+230 71 moveto
+250 71 lineto
+250 51 lineto
+230 51 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+230 71 moveto
+250 71 lineto
+250 51 lineto
+230 51 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+235 66 moveto
+246 66 lineto
+246 55 lineto
+235 55 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+196 45 moveto
+307 45 lineto
+307 30 lineto
+196 30 lineto
+closepath clip newpath
+196 38 moveto
+(sende Nachricht) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+110 191 moveto
+130 191 lineto
+130 171 lineto
+110 171 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+110 191 moveto
+130 191 lineto
+130 171 lineto
+110 171 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+115 186 moveto
+126 186 lineto
+126 175 lineto
+115 175 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+30 191 moveto
+50 191 lineto
+50 171 lineto
+30 171 lineto
+closepath
+fill
+1.000000 setlinewidth
+0.00000000 0.00000000 0.00000000 setrgbcolor
+newpath
+30 191 moveto
+50 191 lineto
+50 171 lineto
+30 171 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+35 186 moveto
+46 186 lineto
+46 175 lineto
+35 175 lineto
+closepath clip newpath
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+130 421 moveto
+230 421 lineto
+stroke
+1.000000 setlinewidth
+newpath
+230 421 moveto
+220 418 lineto
+220 424 lineto
+230 421 lineto
+eofill
+1.000000 setlinewidth
+newpath
+230 421 moveto
+220 418 lineto
+220 424 lineto
+230 421 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+250 421 moveto
+410 421 lineto
+stroke
+1.000000 setlinewidth
+newpath
+410 421 moveto
+400 418 lineto
+400 424 lineto
+410 421 lineto
+eofill
+1.000000 setlinewidth
+newpath
+410 421 moveto
+400 418 lineto
+400 424 lineto
+410 421 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+430 421 moveto
+670 421 lineto
+stroke
+1.000000 setlinewidth
+newpath
+670 421 moveto
+660 418 lineto
+660 424 lineto
+670 421 lineto
+eofill
+1.000000 setlinewidth
+newpath
+670 421 moveto
+660 418 lineto
+660 424 lineto
+670 421 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+486 439 moveto
+618 439 lineto
+618 424 lineto
+486 424 lineto
+closepath clip newpath
+486 432 moveto
+(Nachricht kommt an) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+420 431 moveto
+420 471 lineto
+stroke
+1.000000 setlinewidth
+newpath
+420 471 moveto
+423 461 lineto
+417 461 lineto
+420 471 lineto
+eofill
+1.000000 setlinewidth
+newpath
+420 471 moveto
+423 461 lineto
+417 461 lineto
+420 471 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+670 341 moveto
+430 341 lineto
+stroke
+1.000000 setlinewidth
+newpath
+430 341 moveto
+440 344 lineto
+440 338 lineto
+430 341 lineto
+eofill
+1.000000 setlinewidth
+newpath
+430 341 moveto
+440 344 lineto
+440 338 lineto
+430 341 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+420 331 moveto
+420 311 lineto
+stroke
+1.000000 setlinewidth
+newpath
+420 311 moveto
+417 321 lineto
+423 321 lineto
+420 311 lineto
+eofill
+1.000000 setlinewidth
+newpath
+420 311 moveto
+417 321 lineto
+423 321 lineto
+420 311 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+410 341 moveto
+210 341 lineto
+stroke
+1.000000 setlinewidth
+newpath
+210 341 moveto
+220 344 lineto
+220 338 lineto
+210 341 lineto
+eofill
+1.000000 setlinewidth
+newpath
+210 341 moveto
+220 344 lineto
+220 338 lineto
+210 341 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+244 330 moveto
+390 330 lineto
+390 315 lineto
+244 315 lineto
+closepath clip newpath
+244 323 moveto
+(Best\344tigung kommt an) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+190 341 moveto
+130 341 lineto
+stroke
+1.000000 setlinewidth
+newpath
+130 341 moveto
+140 344 lineto
+140 338 lineto
+130 341 lineto
+eofill
+1.000000 setlinewidth
+newpath
+130 341 moveto
+140 344 lineto
+140 338 lineto
+130 341 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+420 291 moveto
+420 271 lineto
+stroke
+1.000000 setlinewidth
+newpath
+420 271 moveto
+417 281 lineto
+423 281 lineto
+420 271 lineto
+eofill
+1.000000 setlinewidth
+newpath
+420 271 moveto
+417 281 lineto
+423 281 lineto
+420 271 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+127 414 moveto
+190 351 lineto
+stroke
+1.000000 setlinewidth
+newpath
+190 351 moveto
+181 356 lineto
+185 360 lineto
+190 351 lineto
+eofill
+1.000000 setlinewidth
+newpath
+190 351 moveto
+181 356 lineto
+185 360 lineto
+190 351 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+420 491 moveto
+420 511 lineto
+stroke
+1.000000 setlinewidth
+newpath
+420 511 moveto
+423 501 lineto
+417 501 lineto
+420 511 lineto
+eofill
+1.000000 setlinewidth
+newpath
+420 511 moveto
+423 501 lineto
+417 501 lineto
+420 511 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+690 341 moveto
+740 341 lineto
+790 341 lineto
+stroke
+1.000000 setlinewidth
+newpath
+790 341 moveto
+780 338 lineto
+780 344 lineto
+790 341 lineto
+eofill
+1.000000 setlinewidth
+newpath
+790 341 moveto
+780 338 lineto
+780 344 lineto
+790 341 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+790 341 moveto
+740 341 lineto
+690 341 lineto
+stroke
+1.000000 setlinewidth
+newpath
+690 341 moveto
+700 344 lineto
+700 338 lineto
+690 341 lineto
+eofill
+1.000000 setlinewidth
+newpath
+690 341 moveto
+700 344 lineto
+700 338 lineto
+690 341 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+230 421 moveto
+130 421 lineto
+stroke
+1.000000 setlinewidth
+newpath
+130 421 moveto
+140 424 lineto
+140 418 lineto
+130 421 lineto
+eofill
+1.000000 setlinewidth
+newpath
+130 421 moveto
+140 424 lineto
+140 418 lineto
+130 421 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+680 431 moveto
+680 531 lineto
+stroke
+1.000000 setlinewidth
+newpath
+680 531 moveto
+683 521 lineto
+677 521 lineto
+680 531 lineto
+eofill
+1.000000 setlinewidth
+newpath
+680 531 moveto
+683 521 lineto
+677 521 lineto
+680 531 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+187 474 moveto
+230 431 lineto
+stroke
+1.000000 setlinewidth
+newpath
+230 431 moveto
+221 436 lineto
+225 440 lineto
+230 431 lineto
+eofill
+1.000000 setlinewidth
+newpath
+230 431 moveto
+221 436 lineto
+225 440 lineto
+230 431 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+670 541 moveto
+190 541 lineto
+stroke
+1.000000 setlinewidth
+newpath
+190 541 moveto
+200 544 lineto
+200 538 lineto
+190 541 lineto
+eofill
+1.000000 setlinewidth
+newpath
+190 541 moveto
+200 544 lineto
+200 538 lineto
+190 541 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+180 531 moveto
+180 501 lineto
+180 501 lineto
+180 491 lineto
+stroke
+1.000000 setlinewidth
+newpath
+180 491 moveto
+177 501 lineto
+183 501 lineto
+180 491 lineto
+eofill
+1.000000 setlinewidth
+newpath
+180 491 moveto
+177 501 lineto
+183 501 lineto
+180 491 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+410 481 moveto
+190 481 lineto
+stroke
+1.000000 setlinewidth
+newpath
+190 481 moveto
+200 484 lineto
+200 478 lineto
+190 481 lineto
+eofill
+1.000000 setlinewidth
+newpath
+190 481 moveto
+200 484 lineto
+200 478 lineto
+190 481 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+410 121 moveto
+190 121 lineto
+stroke
+1.000000 setlinewidth
+newpath
+190 121 moveto
+200 124 lineto
+200 118 lineto
+190 121 lineto
+eofill
+1.000000 setlinewidth
+newpath
+190 121 moveto
+200 124 lineto
+200 118 lineto
+190 121 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+180 171 moveto
+180 141 lineto
+180 141 lineto
+180 131 lineto
+stroke
+1.000000 setlinewidth
+newpath
+180 131 moveto
+177 141 lineto
+183 141 lineto
+180 131 lineto
+eofill
+1.000000 setlinewidth
+newpath
+180 131 moveto
+177 141 lineto
+183 141 lineto
+180 131 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+670 181 moveto
+190 181 lineto
+stroke
+1.000000 setlinewidth
+newpath
+190 181 moveto
+200 184 lineto
+200 178 lineto
+190 181 lineto
+eofill
+1.000000 setlinewidth
+newpath
+190 181 moveto
+200 184 lineto
+200 178 lineto
+190 181 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+187 114 moveto
+230 71 lineto
+stroke
+1.000000 setlinewidth
+newpath
+230 71 moveto
+221 76 lineto
+225 80 lineto
+230 71 lineto
+eofill
+1.000000 setlinewidth
+newpath
+230 71 moveto
+221 76 lineto
+225 80 lineto
+230 71 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+680 71 moveto
+680 171 lineto
+stroke
+1.000000 setlinewidth
+newpath
+680 171 moveto
+683 161 lineto
+677 161 lineto
+680 171 lineto
+eofill
+1.000000 setlinewidth
+newpath
+680 171 moveto
+683 161 lineto
+677 161 lineto
+680 171 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+230 61 moveto
+130 61 lineto
+stroke
+1.000000 setlinewidth
+newpath
+130 61 moveto
+140 64 lineto
+140 58 lineto
+130 61 lineto
+eofill
+1.000000 setlinewidth
+newpath
+130 61 moveto
+140 64 lineto
+140 58 lineto
+130 61 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+790 -19 moveto
+740 -19 lineto
+690 -19 lineto
+stroke
+1.000000 setlinewidth
+newpath
+690 -19 moveto
+700 -16 lineto
+700 -22 lineto
+690 -19 lineto
+eofill
+1.000000 setlinewidth
+newpath
+690 -19 moveto
+700 -16 lineto
+700 -22 lineto
+690 -19 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+690 -19 moveto
+740 -19 lineto
+790 -19 lineto
+stroke
+1.000000 setlinewidth
+newpath
+790 -19 moveto
+780 -22 lineto
+780 -16 lineto
+790 -19 lineto
+eofill
+1.000000 setlinewidth
+newpath
+790 -19 moveto
+780 -22 lineto
+780 -16 lineto
+790 -19 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+420 131 moveto
+420 151 lineto
+stroke
+1.000000 setlinewidth
+newpath
+420 151 moveto
+423 141 lineto
+417 141 lineto
+420 151 lineto
+eofill
+1.000000 setlinewidth
+newpath
+420 151 moveto
+423 141 lineto
+417 141 lineto
+420 151 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+127 54 moveto
+190 -9 lineto
+stroke
+1.000000 setlinewidth
+newpath
+190 -9 moveto
+181 -4 lineto
+185 0 lineto
+190 -9 lineto
+eofill
+1.000000 setlinewidth
+newpath
+190 -9 moveto
+181 -4 lineto
+185 0 lineto
+190 -9 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+420 -69 moveto
+420 -89 lineto
+stroke
+1.000000 setlinewidth
+newpath
+420 -89 moveto
+417 -79 lineto
+423 -79 lineto
+420 -89 lineto
+eofill
+1.000000 setlinewidth
+newpath
+420 -89 moveto
+417 -79 lineto
+423 -79 lineto
+420 -89 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+190 -19 moveto
+130 -19 lineto
+stroke
+1.000000 setlinewidth
+newpath
+130 -19 moveto
+140 -16 lineto
+140 -22 lineto
+130 -19 lineto
+eofill
+1.000000 setlinewidth
+newpath
+130 -19 moveto
+140 -16 lineto
+140 -22 lineto
+130 -19 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+410 -19 moveto
+210 -19 lineto
+stroke
+1.000000 setlinewidth
+newpath
+210 -19 moveto
+220 -16 lineto
+220 -22 lineto
+210 -19 lineto
+eofill
+1.000000 setlinewidth
+newpath
+210 -19 moveto
+220 -16 lineto
+220 -22 lineto
+210 -19 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+237 -35 moveto
+383 -35 lineto
+383 -50 lineto
+237 -50 lineto
+closepath clip newpath
+237 -42 moveto
+(Best\344tigung kommt an) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+420 -29 moveto
+420 -49 lineto
+stroke
+1.000000 setlinewidth
+newpath
+420 -49 moveto
+417 -39 lineto
+423 -39 lineto
+420 -49 lineto
+eofill
+1.000000 setlinewidth
+newpath
+420 -49 moveto
+417 -39 lineto
+423 -39 lineto
+420 -49 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+670 -19 moveto
+430 -19 lineto
+stroke
+1.000000 setlinewidth
+newpath
+430 -19 moveto
+440 -16 lineto
+440 -22 lineto
+430 -19 lineto
+eofill
+1.000000 setlinewidth
+newpath
+430 -19 moveto
+440 -16 lineto
+440 -22 lineto
+430 -19 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+420 71 moveto
+420 111 lineto
+stroke
+1.000000 setlinewidth
+newpath
+420 111 moveto
+423 101 lineto
+417 101 lineto
+420 111 lineto
+eofill
+1.000000 setlinewidth
+newpath
+420 111 moveto
+423 101 lineto
+417 101 lineto
+420 111 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+430 61 moveto
+670 61 lineto
+stroke
+1.000000 setlinewidth
+newpath
+670 61 moveto
+660 58 lineto
+660 64 lineto
+670 61 lineto
+eofill
+1.000000 setlinewidth
+newpath
+670 61 moveto
+660 58 lineto
+660 64 lineto
+670 61 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+/Courier reencodeISO def
+/Courier findfont
+7.998032 scalefont setfont
+gsave
+ newpath
+495 80 moveto
+627 80 lineto
+627 65 lineto
+495 65 lineto
+closepath clip newpath
+495 73 moveto
+(Nachricht kommt an) show
+grestore
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+250 61 moveto
+410 61 lineto
+stroke
+1.000000 setlinewidth
+newpath
+410 61 moveto
+400 58 lineto
+400 64 lineto
+410 61 lineto
+eofill
+1.000000 setlinewidth
+newpath
+410 61 moveto
+400 58 lineto
+400 64 lineto
+410 61 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+130 61 moveto
+230 61 lineto
+stroke
+1.000000 setlinewidth
+newpath
+230 61 moveto
+220 58 lineto
+220 64 lineto
+230 61 lineto
+eofill
+1.000000 setlinewidth
+newpath
+230 61 moveto
+220 58 lineto
+220 64 lineto
+230 61 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+120 331 moveto
+120 191 lineto
+stroke
+1.000000 setlinewidth
+newpath
+120 191 moveto
+117 201 lineto
+123 201 lineto
+120 191 lineto
+eofill
+1.000000 setlinewidth
+newpath
+120 191 moveto
+117 201 lineto
+123 201 lineto
+120 191 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+120 171 moveto
+120 71 lineto
+stroke
+1.000000 setlinewidth
+newpath
+120 71 moveto
+117 81 lineto
+123 81 lineto
+120 71 lineto
+eofill
+1.000000 setlinewidth
+newpath
+120 71 moveto
+117 81 lineto
+123 81 lineto
+120 71 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+800 331 moveto
+800 61 lineto
+690 61 lineto
+stroke
+1.000000 setlinewidth
+newpath
+690 61 moveto
+700 64 lineto
+700 58 lineto
+690 61 lineto
+eofill
+1.000000 setlinewidth
+newpath
+690 61 moveto
+700 64 lineto
+700 58 lineto
+690 61 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+40 191 moveto
+40 421 lineto
+110 421 lineto
+stroke
+1.000000 setlinewidth
+newpath
+110 421 moveto
+100 418 lineto
+100 424 lineto
+110 421 lineto
+eofill
+1.000000 setlinewidth
+newpath
+110 421 moveto
+100 418 lineto
+100 424 lineto
+110 421 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+110 -19 moveto
+40 -19 lineto
+40 171 lineto
+stroke
+1.000000 setlinewidth
+newpath
+40 171 moveto
+43 161 lineto
+37 161 lineto
+40 171 lineto
+eofill
+1.000000 setlinewidth
+newpath
+40 171 moveto
+43 161 lineto
+37 161 lineto
+40 171 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+680 311 moveto
+680 331 lineto
+stroke
+1.000000 setlinewidth
+newpath
+680 331 moveto
+683 321 lineto
+677 321 lineto
+680 331 lineto
+eofill
+1.000000 setlinewidth
+newpath
+680 331 moveto
+683 321 lineto
+677 321 lineto
+680 331 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+430 301 moveto
+670 301 lineto
+stroke
+1.000000 setlinewidth
+newpath
+670 301 moveto
+660 298 lineto
+660 304 lineto
+670 301 lineto
+eofill
+1.000000 setlinewidth
+newpath
+670 301 moveto
+660 298 lineto
+660 304 lineto
+670 301 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+200 331 moveto
+200 241 lineto
+680 241 lineto
+680 291 lineto
+stroke
+1.000000 setlinewidth
+newpath
+680 291 moveto
+683 281 lineto
+677 281 lineto
+680 291 lineto
+eofill
+1.000000 setlinewidth
+newpath
+680 291 moveto
+683 281 lineto
+677 281 lineto
+680 291 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+690 414 moveto
+792 347 lineto
+stroke
+1.000000 setlinewidth
+newpath
+792 347 moveto
+782 349 lineto
+785 355 lineto
+792 347 lineto
+eofill
+1.000000 setlinewidth
+newpath
+792 347 moveto
+782 349 lineto
+785 355 lineto
+792 347 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+690 54 moveto
+792 -13 lineto
+stroke
+1.000000 setlinewidth
+newpath
+792 -13 moveto
+782 -11 lineto
+785 -5 lineto
+792 -13 lineto
+eofill
+1.000000 setlinewidth
+newpath
+792 -13 moveto
+782 -11 lineto
+785 -5 lineto
+792 -13 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+810 -19 moveto
+820 -19 lineto
+820 421 lineto
+700 421 lineto
+690 421 lineto
+stroke
+1.000000 setlinewidth
+newpath
+690 421 moveto
+700 424 lineto
+700 418 lineto
+690 421 lineto
+eofill
+1.000000 setlinewidth
+newpath
+690 421 moveto
+700 424 lineto
+700 418 lineto
+690 421 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+430 -59 moveto
+670 -59 lineto
+stroke
+1.000000 setlinewidth
+newpath
+670 -59 moveto
+660 -62 lineto
+660 -56 lineto
+670 -59 lineto
+eofill
+1.000000 setlinewidth
+newpath
+670 -59 moveto
+660 -62 lineto
+660 -56 lineto
+670 -59 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+200 -29 moveto
+200 -119 lineto
+680 -119 lineto
+680 -69 lineto
+stroke
+1.000000 setlinewidth
+newpath
+680 -69 moveto
+683 -79 lineto
+677 -79 lineto
+680 -69 lineto
+eofill
+1.000000 setlinewidth
+newpath
+680 -69 moveto
+683 -79 lineto
+677 -79 lineto
+680 -69 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.000000 setlinewidth
+newpath
+680 -49 moveto
+680 -29 lineto
+stroke
+1.000000 setlinewidth
+newpath
+680 -29 moveto
+683 -39 lineto
+677 -39 lineto
+680 -29 lineto
+eofill
+1.000000 setlinewidth
+newpath
+680 -29 moveto
+683 -39 lineto
+677 -39 lineto
+680 -29 lineto
+closepath
+stroke
+1.000000 setlinewidth
+1.000000 setlinewidth
+1.00000000 1.00000000 1.00000000 setrgbcolor
+newpath
+10 833 moveto
+25 833 lineto
+25 809 lineto
+10 809 lineto
+closepath
+fill
+1.000000 setlinewidth
+newpath
+10 833 moveto
+25 833 lineto
+25 809 lineto
+10 809 lineto
+closepath
+stroke
+1.000000 setlinewidth
+/Helvetica reencodeISO def
+/Helvetica findfont
+9.997540 scalefont setfont
+gsave
+ newpath
+15 828 moveto
+21 828 lineto
+21 813 lineto
+15 813 lineto
+closepath clip newpath
+grestore
+0.00000000 0.00000000 0.00000000 setrgbcolor
+1.000000 setlinewidth
