@@ -1,5 +1,5 @@
 package praktikum;
 
 public enum DirectionType {
-	RIGHT, LEFT, UP, DOWN,
+	EAST, WEST, NORTH, SOUTH, TODDECIDE
 }

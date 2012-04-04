@@ -1,7 +1,5 @@
 package praktikum;
 
-import java.util.prefs.BackingStoreException;
-
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.Color;
@@ -12,11 +10,13 @@ import org.newdawn.slick.geom.Rectangle;
 
 public class Simulation extends BasicGame {
 	
-	private static int TILE_WIDTH = 64;
-	private static int TILE_HEIGHT = 64;
+	private static int TILE_ZOOM = 32;
 	
 	private static int WIDTH = 800 ;
 	private static int HEIGHT = 600;
+	
+	public static final int BLOCK_FLAG = 1;
+	public static final int STREET_FLAG = 0;
 	
 	private static Color COLOR_BACKGROUND = Color.lightGray;
 	private static Color COLOR_STREET = Color.darkGray;
@@ -43,50 +43,55 @@ public class Simulation extends BasicGame {
 			for (int x = 0; x < mapWidth; x++) {
 				int value = map[y][x];
 				switch (value) {
-				case 0:
+				case STREET_FLAG:
 					g.setColor(COLOR_STREET);
-					g.fill(new Rectangle(pixelX, pixelY, TILE_WIDTH, TILE_HEIGHT));
+					g.fill(new Rectangle(pixelX, pixelY, world.getRoxelLength()*TILE_ZOOM, world.getRoxelLength()*TILE_ZOOM));
 					break;
-				case 1:
+				case BLOCK_FLAG:
 					g.setColor(COLOR_BLOCK);
-					g.fill(new Rectangle(pixelX, pixelY, TILE_WIDTH, TILE_HEIGHT));
+					g.fill(new Rectangle(pixelX, pixelY, world.getRoxelLength()*TILE_ZOOM, world.getRoxelLength()*TILE_ZOOM));
 					break;
 				default:
 					
 					break;
 				}
-				pixelX += TILE_WIDTH;
+				pixelX += world.getRoxelLength()*TILE_ZOOM;
 			}
-			pixelY += TILE_HEIGHT;
+			pixelY += world.getRoxelLength()*TILE_ZOOM;
 			pixelX = 0;
 		}
 		
-		for (Car car : world.getCars()) {
-			g.drawImage(car.getImage(), car.currentX*TILE_WIDTH, car.currentY*TILE_HEIGHT);
+		for (Roxel roxel : world.getAllRoxels()) {
+			System.out.println(roxel.toString());
+			if(roxel.getOccupingCar()>0){
+				g.setColor(Color.red);
+				g.drawImage(roxel.getImage(), roxel.getX()*world.getRoxelLength()*TILE_ZOOM, roxel.getY()*world.getRoxelLength()*TILE_ZOOM);
+			}
+			
 		}
 
 	}
 
 	@Override
 	public void init(GameContainer arg0) throws SlickException {
-		world = new World(TILE_WIDTH,TILE_HEIGHT);
+		world = new World();
+		world.initWorld();
 
 	}
 
 	@Override
 	public void update(GameContainer arg0, int arg1) throws SlickException {
-		for (Car car : world.getCars()) {
-			car.move();
-		}
+		//for (Car car : world.getCars()) {
+		//	car.move();
+		//}
 
 	}
+
 	
 	public static void main(String[] args) throws SlickException {
 		AppGameContainer sim = new AppGameContainer(new Simulation(
 				"Strasse"));
 		sim.setDisplayMode(WIDTH, HEIGHT, false);
-		sim.setMaximumLogicUpdateInterval(1000);
-		sim.setMinimumLogicUpdateInterval(1000);
 		sim.setVSync(true);
 		sim.setShowFPS(false);
 		sim.start();

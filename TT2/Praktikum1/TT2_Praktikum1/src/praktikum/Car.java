@@ -5,32 +5,89 @@ import java.awt.Point;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
-public class Car {
+import com.gigaspaces.annotation.pojo.SpaceId;
 
-	public DirectionType direction;
-	public Image img;
-	public int currentX;
-	public int currentY;
+public class Car extends Thread {
 
-	public Car(DirectionType dir, int currentX, int currentY) {
+	private DirectionType direction;
+	private int identifier;
+	private Image img;
+	private long sleepTime;
+	private int currentX;
+	private int currentY;
+	
+	private TupelSpaceAdapter tsAdapter;
+	
+
+	public Car(int id, DirectionType dir, long sleepTime, int currentX, int currentY, TupelSpaceAdapter tsa) {
+		this.identifier = id;
 		this.direction = dir;
+		this.sleepTime = sleepTime;
 		this.currentX = currentX;
 		this.currentY = currentY;
-		initImage();
+		this.tsAdapter = tsa;
+		
 	}
 	
+	
+	public DirectionType getDirection() {
+		return direction;
+	}
+
+
+	public void setDirection(DirectionType direction) {
+		this.direction = direction;
+	}
+
+
+	@SpaceId
+	public int getIdentifier() {
+		return identifier;
+	}
+
+
+	public void setIdentifier(int id) {
+		this.identifier = id;
+	}
+
+
+
+	public int getCurrentX() {
+		return currentX;
+	}
+
+
+
+	public void setCurrentX(int currentX) {
+		this.currentX = currentX;
+	}
+
+
+
+	public int getCurrentY() {
+		return currentY;
+	}
+
+
+
+	public void setCurrentY(int currentY) {
+		this.currentY = currentY;
+	}
+
+
+
 	public void move(){
 		switch (direction) {
-		case LEFT:
+		case WEST:
 			currentX -= 1;
 			break;
-		case RIGHT:
+		case EAST:
 			currentX += 1;
 			break;
-		case UP:
+		case NORTH:
 			currentY -= 1;
 			break;
-		case DOWN:
+		case SOUTH:
 			currentY += 1;
 			break;
 
@@ -39,35 +96,21 @@ public class Car {
 		}
 	}
 	
-	public void initImage(){
-		try {
-			switch (direction) {
-			case LEFT:
-				img =  new Image("resource/gfx/car_left.png");
-				break;
-			case RIGHT:
-				img =  new Image("resource/gfx/car_right.png");
-				break;
-			case UP:
-				img =  new Image("resource/gfx/car_up.png");
-				break;
-			case DOWN:
-				img =  new Image("resource/gfx/car_down.png");
-				break;
-			default:
-				break;
-			}
-		} catch (SlickException e) {
-			System.out.println("Fehler: Grafik konnte nicht gefunden werden");
-		}
-
-	}
-	
-	public Image getImage(){
-		return img;
-	}
-	
 	public Point getPosition(){
 		return new Point(currentX, currentY);
+	}
+
+	@Override
+	public void run() {
+		
+		while(true){
+			this.move();
+			try {
+				Thread.sleep(sleepTime);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }
