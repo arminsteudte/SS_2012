@@ -1,0 +1,94 @@
+\documentclass[10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\usepackage[ngerman]{babel}
+\usepackage[automark]{scrpage2}
+\usepackage{amsmath,amssymb,amstext}
+%\usepackage{mathtools}
+\usepackage[]{color}
+\usepackage[]{enumerate}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage[perpage,para,symbol*]{footmisc}
+\usepackage{listings} 
+\usepackage[pdfborder={0 0 0},colorlinks=false]{hyperref}
+\usepackage[numbers,square]{natbib}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{listings}
+\usepackage{a4wide}
+\usepackage{xspace}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{epstopdf}
+
+\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt, breaklines=true, showstringspaces=false} 
+
+%changehere
+\def\titletext{TH1 Praktikum 2 : Ausarbeitung}
+\def\titletextshort{Praktikum 2}
+\author{Carsten Noetzel, Armin Steudte}
+
+\title{\titletext}
+
+%changehere Datum der Übung
+\date{23.03.2012}
+
+\pagestyle{scrheadings}
+%changehere
+\ihead{TH1, Padberg}
+\ifoot{Generiert am:\\ \today}
+
+\cfoot{Carsten Noetzel, Armin Steudte}
+
+
+\ohead[]{\titletextshort}
+\ofoot[]{{\thepage} / \pageref{LastPage}}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.1in}
+
+\begin{document}
+\maketitle
+
+\setcounter{tocdepth}{3}
+\tableofcontents
+\listoffigures
+%\lstlistoflistings
+
+\section{Aufgabe 1}
+In dieser Aufgabe ist ein Modelleisenbahn in Form eines Kreises zu modellieren.
+Dabei sollen folgende Aspekte beachtet werden:
+\begin{itemize}
+	\item Es sollen mindestens 8 Gleisabschnitte geben.
+	\item Zügen sollen sowohl vorwärts als auch rückwärts fahren können.
+	\item Es dürfen sich nicht zwei Züge gleichzeitig auf einem Gleisabschnitt befinden.
+	\item Es soll zwei Züge geben.
+\end{itemize}
+Im Folgendem sollen diese Aspekte in der oben genannten Reihenfolge betrachtet werden.
+
+\subsection{Streckenmodellierung}
+Ein Gleisabschnitt wird im Modell in Form einer Stelle mit der Kapazität von eins modelliert.
+Gleichzeitig existiert pro Gleisabschnitt eine zusätzliche Stelle mit einer Kapazität von eins, welche den Zustand eines Gleisabschnitts angibt.
+Sie wird initial mit einem Token belegt, was bedeutet dass dieser Gleisabschnitt nicht von einem Zug befahren wird und damit befahren werden kann.
+Kein Token auf der Stelle signalisiert einen nicht befahrbaren Gleisabschnitt.\\
+Züge werden durch Token auf den Stellen dargestellt, die sich auf den Gleisabschnitts-Stellen bewegen.
+Ihre Bewegung wird dabei über das Schalten von Transitionen realisiert.
+Für jede Bewegungsrichtung existiert eine Transition $t_{1}$ zwischen zwei Stellen $p_{1}$ und $p_{2}$.
+Für das Vorwärtsfahren bzw. die Hinrichtung existiert zwei Kanten $(p_{1},t_{1)$ und $(t_{1,p_{2})$. Diese verbinden $p_{1}$ mit $t$ und $t_{1$ zusätzlich mit $p_{2}$.
+Das Rückwärtsfahren bzw. die Rückrichtung wird durch eine weite Transition $t_{2}$ und den dazugehörigen Kanten $(p_{2},t_{2})$ sowie $(t_{2},p_{1})$ simuliert.
+
+\subsection{Exklusives Befahren eines Gleisabschnitts}
+Wechselt ein Zug in den nächsten Gleisabschnitt so wird der Stelle, welche den Zustand zum Befahren eines Gleisabschnitts angibt, das Token entzogen.
+Diese Stellen agieren als Vorbedingung für die Transitionen die den Zug auf den ihnen zugeordneten Gleisabschnitt fahren lässt.
+Ist kein Token auf der Stelle, und damit der Strecken abschnitt nicht befahrbar, kann sowohl die Transition die den Zug im Uhrzeigersinn als auch die Transition die den Zug gegen den Uhrzeigersinn fahren lässt, nicht schalten.\\
+Schaltet ein Transition so wird das Token an die Stelle davor zurückgegeben.
+Auf diese Weise kann nur ein Zug zur selben Zeit einen Gleisabschnitt befahren.
+
+\subsection{Zugmodellierung}
+Züge werden durch Token auf Gleisabschnitts-Stellen modelliert.
+Zwei Züge sind damit zwei Token die sich auf unterschiedlichen Stellen befinden. 
+
+\end{document}
+
