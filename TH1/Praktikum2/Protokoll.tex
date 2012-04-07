@@ -66,7 +66,7 @@ Dabei sollen folgende Aspekte beachtet werden:
 	\item Es dürfen sich nicht zwei Züge gleichzeitig auf einem Gleisabschnitt befinden.
 	\item Es soll zwei Züge geben.
 \end{itemize}
-Im Folgendem sollen diese Aspekte in der oben genannten Reihenfolge betrachtet werden.
+Im Folgenden sollen diese Aspekte in der oben genannten Reihenfolge betrachtet werden.
 
 \subsection{Streckenmodellierung}
 Ein Gleisabschnitt wird im Modell in Form einer Stelle mit der Kapazität von eins modelliert.
@@ -76,7 +76,7 @@ Kein Token auf der Stelle signalisiert einen nicht befahrbaren Gleisabschnitt.\\
 Züge werden durch Token auf den Stellen dargestellt, die sich auf den Gleisabschnitts-Stellen bewegen.
 Ihre Bewegung wird dabei über das Schalten von Transitionen realisiert.
 Für jede Bewegungsrichtung existiert eine Transition $t_{1}$ zwischen zwei Stellen $p_{1}$ und $p_{2}$.
-Für das Vorwärtsfahren bzw. die Hinrichtung existiert zwei Kanten $(p_{1},t_{1)$ und $(t_{1,p_{2})$. Diese verbinden $p_{1}$ mit $t$ und $t_{1$ zusätzlich mit $p_{2}$.
+Für das Vorwärtsfahren bzw. die Hinrichtung existiert zwei Kanten $(p_{1},t_{1})$ und $(t_{1},p_{2})$. Diese verbinden $p_{1}$ mit $t$ und $t_{1}$ zusätzlich mit $p_{2}$.
 Das Rückwärtsfahren bzw. die Rückrichtung wird durch eine weite Transition $t_{2}$ und den dazugehörigen Kanten $(p_{2},t_{2})$ sowie $(t_{2},p_{1})$ simuliert.
 
 \subsection{Exklusives Befahren eines Gleisabschnitts}
