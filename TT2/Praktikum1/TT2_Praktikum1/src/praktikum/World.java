@@ -8,6 +8,7 @@ public class World {
 	private int[][] map;
 	private int roxelLength;
 	private TupelSpaceAdapter tsAdapter;
+	private int[][] streetStructure;
 
 	private ArrayList<Car> cars;
 
@@ -15,6 +16,10 @@ public class World {
 		tsAdapter = new TupelSpaceAdapter("TestTupelSpace");
 		this.roxelLength = 0;
 		map = null;
+		this.streetStructure = new int[][]{
+				{Simulation.BLOCK_FLAG, Simulation.STREET_FLAG},
+				{Simulation.STREET_FLAG, Simulation.STREET_FLAG}
+		};
 	}
 
 	public int getRoxelLength() {
@@ -60,6 +65,32 @@ public class World {
 		}
 		roxelLength = mapStruct.getRoxelLength();
 		
+		//Berechnen wie häufig die definierte Strassen-Struktur in die Vorgabe durch das Strukturtupel passt
+		int countRoxelX = (mapStruct.getRoxelCountX() / streetStructure[0].length) * streetStructure[0].length;
+		int countRoxelY = (mapStruct.getRoxelCountX() / streetStructure.length) * streetStructure.length;
+		
+		//Map initialisieren
+		map = new int[countRoxelY][countRoxelX];
+
+		//erste Zeilen nach Vorgabe der Strassen-Struktur erstellen
+		int timesForX = 0;
+		while(timesForX < (mapStruct.getRoxelCountX() / streetStructure[0].length)){
+			for (int i = 0; i < streetStructure.length; i++) {
+				System.arraycopy(streetStructure[i], 0, map[i], timesForX * streetStructure[i].length, streetStructure[i].length);
+			}
+			timesForX++;
+		}
+		
+		//nachdem die ersten Zeilen erstellt wurden diese in Y-Richtung nach unten kopieren
+		int timesFory = 1;
+		while(timesFory < (mapStruct.getRoxelCountY() / streetStructure.length)){
+			for (int i = 0; i < streetStructure.length; i++) {
+				System.arraycopy(map[i], 0, map[timesFory * streetStructure.length + i] , 0, map[i].length);
+			}
+			timesFory++;
+		}
+		
+		/*
 		map = new int[mapStruct.getRoxelCountY()][mapStruct.getRoxelCountX()];
 		boolean block = true;
 		for (int y = 0; y < mapStruct.getRoxelCountY(); y++) {
@@ -77,7 +108,7 @@ public class World {
 				}
 			}
 			block = true;
-		}
+		}*/
 	}
 	
 	public ArrayList<Roxel> getAllRoxels(){

@@ -60,7 +60,7 @@ public class Simulation extends BasicGame {
 			pixelY += world.getRoxelLength()*TILE_ZOOM;
 			pixelX = 0;
 		}
-		
+		/*
 		for (Roxel roxel : world.getAllRoxels()) {
 			System.out.println(roxel.toString());
 			if(roxel.getOccupingCar()>0){
@@ -68,7 +68,7 @@ public class Simulation extends BasicGame {
 				g.drawImage(roxel.getImage(), roxel.getX()*world.getRoxelLength()*TILE_ZOOM, roxel.getY()*world.getRoxelLength()*TILE_ZOOM);
 			}
 			
-		}
+		}*/
 
 	}
 
