@@ -1,10 +1,6 @@
 package praktikum;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
-
-import java.lang.IllegalStateException;
 
 import org.openspaces.admin.Admin;
 import org.openspaces.admin.AdminFactory;
@@ -14,10 +10,11 @@ import org.openspaces.admin.pu.ProcessingUnitAlreadyDeployedException;
 import org.openspaces.admin.space.SpaceDeployment;
 import org.openspaces.core.GigaSpace;
 import org.openspaces.core.GigaSpaceConfigurer;
-import org.openspaces.core.space.*;
+import org.openspaces.core.space.UrlSpaceConfigurer;
 import org.springframework.dao.DataAccessException;
 
 import com.j_spaces.core.IJSpace;
+import com.j_spaces.core.client.SQLQuery;
 
 public class TupelSpaceAdapter {
 	
@@ -50,6 +47,10 @@ public class TupelSpaceAdapter {
 		
 	}
 	
+	public void clearSpace(){
+		space.clear(null);
+	}
+	
 	private void getSpace() {
 		IJSpace jSpace = new UrlSpaceConfigurer("jini://*/*/" + tupelSpaceName).space();
 		
@@ -79,6 +80,74 @@ public class TupelSpaceAdapter {
 		return tupel;
 	}
 	
+	public void writeTrafficToSpace(TrafficLight trafficLight){
+		if( space != null ) {
+			space.write(trafficLight);	
+		} else {
+			throw new IllegalStateException("TupelSpaceAdapter not initialiazed");
+		}
+	}
+	
+	public Roxel takeRoxel(int posX, int posY) throws IllegalStateException {
+		Roxel rox = null;
+		
+		SQLQuery<Roxel> query = new SQLQuery<Roxel>(Roxel.class, "x = ? AND y = ?");
+		query = query.setParameter(1, posX).setParameter(2, posY);
+		
+		if( space != null ) {
+			rox = space.takeIfExists(query);			
+		} else {
+			throw new IllegalStateException("TupelSpaceAdapter not initialiazed");
+		}
+		
+		return rox;
+	}
+	
+	public Roxel takeRoxel(int posX, int posY, int identifier, DirectionType direction) throws IllegalStateException {
+		Roxel rox = null;
+		
+		SQLQuery<Roxel> query = new SQLQuery<Roxel>(Roxel.class, "x = ? AND y = ? AND occupingCar = ? AND direction = ?");
+		query = query.setParameter(1, posX).setParameter(2, posY).setParameter(3, identifier).setParameter(4, direction);
+		
+		if( space != null ) {
+			rox = space.takeIfExists(query);			
+		} else {
+			throw new IllegalStateException("TupelSpaceAdapter not initialiazed");
+		}
+		
+		return rox;
+	}
+	
+	public Roxel takeRoxel(Roxel template) throws RuntimeException {
+		Roxel rox = null;
+		
+		if( space != null ) {
+			try {
+				rox = space.takeIfExists(template);
+			} catch (DataAccessException e) {
+				//nix
+			}
+		} else {
+			throw new IllegalStateException("TupelSpaceAdapter not initialiazed");
+		}
+		
+		return rox;
+	}
+	
+	public Roxel readOccupiedRoxel(int posX, int posY) throws IllegalStateException {
+		Roxel rox = null;
+		SQLQuery<Roxel> query = new SQLQuery<Roxel>(Roxel.class, "x = ? AND y = ? AND occupingCar > ?");
+		query = query.setParameter(1, posX).setParameter(2, posY).setParameter(3, 0);
+		
+		if( space != null ) {
+			rox = space.readIfExists(query);			
+		} else {
+			throw new IllegalStateException("TupelSpaceAdapter not initialiazed");
+		}
+		
+		return rox;
+	}
+	
 	public <T> T readIfExistFromSpace(T template) throws RuntimeException {
 		T tupel = null;
 		
@@ -95,6 +164,21 @@ public class TupelSpaceAdapter {
 		return tupel;
 	}
 	
+	public Roxel readRoxelByPosition(int posX, int posY)  {
+		Roxel rox = null;
+		SQLQuery<Roxel> query = new SQLQuery<Roxel>(Roxel.class, "x = ? AND y = ?");
+		query = query.setParameter(1, posX).setParameter(2, posY);
+		
+		if( space != null ) {
+			rox = space.readIfExists(query);			
+		} else {
+			throw new IllegalStateException("TupelSpaceAdapter not initialiazed");
+		}
+		
+		return rox;
+	}
+	
+	/*
 	public <T> ArrayList<T> readManyFromSpace(T template) throws RuntimeException {
 		T[] temp = null; 
 		
@@ -109,6 +193,70 @@ public class TupelSpaceAdapter {
 		}
 		
 		return new ArrayList<T>(Arrays.asList(temp));
+	}*/
+	
+	public TrafficLight[] getAllTrafficLights() throws RuntimeException{
+		TrafficLight[] temp = null;
+		SQLQuery<TrafficLight> query = new SQLQuery<TrafficLight>(TrafficLight.class, "status >= ?");
+		query.setParameter(1, TrafficStatus.GREEN);
+		
+		if( space != null ) {
+			try {
+				temp = space.readMultiple(query);
+			} catch (DataAccessException e) {
+				//nix
+			}
+		} else {
+			throw new IllegalStateException("TupelSpaceAdapter not initialiazed");
+		}
+		
+		return temp;
+	}
+	
+	public Roxel[] getAllOccupiedRoxels() throws RuntimeException{
+		Roxel[] temp = null; 
+		SQLQuery<Roxel> query = new SQLQuery<Roxel>(Roxel.class, "occupingCar > 0");
+		
+		
+		if( space != null ) {
+			try {
+				temp = space.readMultiple(query);
+			} catch (DataAccessException e) {
+				//nix
+			}
+		} else {
+			throw new IllegalStateException("TupelSpaceAdapter not initialiazed");
+		}
+		
+		return temp;
+	}
+	
+	public TrafficLight readTrafficLight(TrafficLight template) {
+		
+		TrafficLight light = null;
+		
+		if( space != null ) {
+			light = space.readIfExists(template);			
+		} else {
+			throw new IllegalStateException("TupelSpaceAdapter not initialiazed");
+		}
+		
+		return light;
+		
+	}
+	
+	public TrafficLight takeTrafficLight(TrafficLight template) {
+		
+		TrafficLight light = null;
+		
+		if( space != null ) {
+			light = space.takeIfExists(template);			
+		} else {
+			throw new IllegalStateException("TupelSpaceAdapter not initialiazed");
+		}
+		
+		return light;
+		
 	}
 	
 	

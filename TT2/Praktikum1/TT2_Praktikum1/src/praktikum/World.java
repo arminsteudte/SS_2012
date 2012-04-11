@@ -17,8 +17,10 @@ public class World {
 		this.roxelLength = 0;
 		map = null;
 		this.streetStructure = new int[][]{
-				{Simulation.BLOCK_FLAG, Simulation.STREET_FLAG},
-				{Simulation.STREET_FLAG, Simulation.STREET_FLAG}
+				{Simulation.BLOCK_FLAG, Simulation.BLOCK_FLAG, Simulation.STREET_FLAG, Simulation.STREET_FLAG},
+				{Simulation.BLOCK_FLAG, Simulation.BLOCK_FLAG, Simulation.STREET_FLAG, Simulation.STREET_FLAG},
+				{Simulation.STREET_FLAG, Simulation.STREET_FLAG, Simulation.CROSSING_FLAG, Simulation.CROSSING_FLAG},
+				{Simulation.STREET_FLAG, Simulation.STREET_FLAG, Simulation.CROSSING_FLAG, Simulation.CROSSING_FLAG}
 		};
 	}
 
@@ -29,6 +31,14 @@ public class World {
 	public int[][] getMap() {
 		return map;
 	}
+	
+	public int getMapHeight(){
+		return map.length;
+	}
+	
+	public int getMapWidth(){
+		return map[0].length;
+	}
 
 	public ArrayList<Car> getCars() {
 		return cars;
@@ -36,8 +46,10 @@ public class World {
 
 	public void initWorld() {
 		tsAdapter.init();
+		tsAdapter.clearSpace();		//initiales Löschen des Tupelspace!
 		createMap();
 		createRoxelRepresentation();
+		initCrossings();
 		initCars();
 		
 		/*
@@ -60,7 +72,7 @@ public class World {
 		if (mapStruct != null) {
 			
 		} else {
-			mapStruct = new MapStructure("Strukturtupel", 2, 11, 11);
+			mapStruct = new MapStructure("Strukturtupel", 2, 24, 24);
 			tsAdapter.writeToSpace(mapStruct);
 		}
 		roxelLength = mapStruct.getRoxelLength();
@@ -111,53 +123,78 @@ public class World {
 		}*/
 	}
 	
-	public ArrayList<Roxel> getAllRoxels(){
-		return tsAdapter.readManyFromSpace(new Roxel()); 
+	public TrafficLight[] getAllTrafficLights(){
+		return tsAdapter.getAllTrafficLights();
+	}
+	
+	public Roxel[] getAllOccupiedRoxels(){
+		return tsAdapter.getAllOccupiedRoxels(); 
 	}
 	
 	private void createRoxelRepresentation(){
 		
 		Roxel tempRoxel = null;
 		
-		for (int y = 0; y < map[0].length; y++) {
-			for (int x = 0; x < map.length; x++) {
+		for (int y = 0; y < map.length; y++) {
+			for (int x = 0; x < map[0].length; x++) {
 				if(map[y][x]==Simulation.STREET_FLAG){
-					tempRoxel = new Roxel(x, y, 0, DirectionType.TODDECIDE);
+					tempRoxel = new Roxel(x, y, 0, DirectionType.TODDECIDE, false);
+					tsAdapter.writeToSpace(tempRoxel);
+				} else if(map[y][x]==Simulation.CROSSING_FLAG){
+					tempRoxel = new Roxel(x, y, 0, DirectionType.TODDECIDE, true);
 					tsAdapter.writeToSpace(tempRoxel);
 				}
 
 			}	
 		}
 	}
+	
+	private void initCrossings(){
+		Crossing tempCrossing = new Crossing(2, 2, tsAdapter);
+		tempCrossing.start();
+	}
 
 	private void initCars() {
 		cars = new ArrayList<Car>();
 		Car car = null;
-		Roxel templateRoxel = null;
-		Roxel returnRoxel = null;
+
 		
-		templateRoxel = new Roxel(7,0);
-		car = new Car(1, DirectionType.SOUTH, calcCarSleepTime(2), 7, 0, tsAdapter);
-		returnRoxel = tsAdapter.readIfExistFromSpace(templateRoxel);
-		returnRoxel.setDirection(car.getDirection());
-		returnRoxel.setOccupingCar(car.getIdentifier());
-		tsAdapter.writeToSpace(returnRoxel);
+		car = createCar(1, DirectionType.EAST, 1, 0, 3);
 		cars.add(car);
 		
-		templateRoxel = new Roxel(0,1);
-		car = new Car(2, DirectionType.EAST, calcCarSleepTime(1), 0, 1, tsAdapter);
-		returnRoxel = tsAdapter.readIfExistFromSpace(templateRoxel);
-		returnRoxel.setDirection(car.getDirection());
-		returnRoxel.setOccupingCar(car.getIdentifier());
-		tsAdapter.writeToSpace(returnRoxel);
+		car = createCar(2, DirectionType.WEST, 2, 23, 2);
 		cars.add(car);
 		
+		car = createCar(3, DirectionType.SOUTH, 1, 2, 0);
+		cars.add(car);
+		
+		car = createCar(4, DirectionType.NORTH, 3, 11, 19);
+		cars.add(car);
+		
+		car = createCar(5, DirectionType.NORTH, 1, 11, 18);
+		cars.add(car);
+		
+		car = createCar(6, DirectionType.WEST, 4, 23, 10);
+		cars.add(car);
 		
 		for (Car c : cars) {
 			c.start();
 		}
 		
 		
+	}
+	
+	private Car createCar(int id, DirectionType direction, int sleepTime, int posX, int posY){
+		Roxel returnRoxel = null;
+		
+		Car tempCar = new Car(id, direction, calcCarSleepTime(sleepTime), posX, posY, tsAdapter, this);
+		
+		returnRoxel = tsAdapter.readRoxelByPosition(posX, posY);
+		returnRoxel.setDirection(tempCar.getDirection());
+		returnRoxel.setOccupingCar(tempCar.getIdentifier());
+		tsAdapter.writeToSpace(returnRoxel);
+		
+		return tempCar;
 	}
 	
 	private long calcCarSleepTime(int velocity){

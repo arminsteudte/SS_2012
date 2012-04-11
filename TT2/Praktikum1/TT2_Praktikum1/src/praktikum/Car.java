@@ -2,30 +2,26 @@ package praktikum;
 
 import java.awt.Point;
 
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
-
-import com.gigaspaces.annotation.pojo.SpaceId;
-
 public class Car extends Thread {
 
 	private DirectionType direction;
 	private int identifier;
-	private Image img;
 	private long sleepTime;
 	private int currentX;
 	private int currentY;
 	
 	private TupelSpaceAdapter tsAdapter;
+	private World world;
 	
 
-	public Car(int id, DirectionType dir, long sleepTime, int currentX, int currentY, TupelSpaceAdapter tsa) {
+	public Car(int id, DirectionType dir, long sleepTime, int currentX, int currentY, TupelSpaceAdapter tsa, World world) {
 		this.identifier = id;
 		this.direction = dir;
 		this.sleepTime = sleepTime;
 		this.currentX = currentX;
 		this.currentY = currentY;
 		this.tsAdapter = tsa;
+		this.world = world;
 		
 	}
 	
@@ -39,8 +35,6 @@ public class Car extends Thread {
 		this.direction = direction;
 	}
 
-
-	@SpaceId
 	public int getIdentifier() {
 		return identifier;
 	}
@@ -75,25 +69,121 @@ public class Car extends Thread {
 	}
 
 
+	public void tryToMove(){
+		if (crossingFreeToPass()){
+			move();
+		}
+		
+	}
 
-	public void move(){
+	private void move(){
+		int nextposX = currentX;
+		int nextposY = currentY;
+	
+		
+		if(currentY==world.getMapHeight()-1 && direction == DirectionType.SOUTH){
+			nextposY = 0;
+		} else if(currentY==0 && direction == DirectionType.NORTH) {
+			nextposY = world.getMapHeight()-1;
+		}else if(currentX==0 && direction == DirectionType.WEST){
+			nextposX = world.getMapWidth()-1;
+		}else if(currentX==world.getMapWidth()-1 && direction == DirectionType.EAST){
+			nextposX =0;
+		}else {
+			switch (direction) {
+			case WEST:
+				nextposX -= 1;
+				break;
+			case EAST:
+				nextposX += 1;
+				break;
+			case NORTH:
+				nextposY -= 1;
+				break;
+			case SOUTH:
+				nextposY += 1;
+				break;
+			default:
+				break;
+			}
+		}
+		
+		Roxel newRoxel = tsAdapter.takeRoxel(new Roxel(nextposX, nextposY));
+		
+		if(newRoxel!=null){
+			//neuen Roxel belegen
+			newRoxel.setOccupingCar(identifier);
+			newRoxel.setDirection(direction);
+			tsAdapter.writeToSpace(newRoxel);
+			
+			Roxel oldRoxel = tsAdapter.takeRoxel(new Roxel(currentX, currentY, identifier, direction));
+			
+			if(oldRoxel!=null){
+				//alten Roxel freigeben
+				oldRoxel.setOccupingCar(0);
+				oldRoxel.setDirection(DirectionType.TODDECIDE);
+				tsAdapter.writeToSpace(oldRoxel);
+				
+				currentX = nextposX;
+				currentY = nextposY;
+			}else{
+				//System.out.println("Altes Roxel nicht gefunden!" + nextposX + " " + nextposY);
+			}
+			
+		}else{
+			//System.out.println("Neues Roxel nicht gefunden!" + currentX + " " + currentY + " " + direction);
+		}		
+
+	}
+	
+	
+	private boolean crossingFreeToPass(){
+		int offsetX = 0;
+		int offsetY = 0;
+		
+		int crossingOffsetX = 0;
+		int crossingOffsetY = 0;
+		
+		boolean passable = false;		
+		
 		switch (direction) {
+		case NORTH:
+			offsetX = 1;
+			crossingOffsetY = -1;
+			break;
 		case WEST:
-			currentX -= 1;
+			offsetY = -1;
+			crossingOffsetX = -1;
 			break;
 		case EAST:
-			currentX += 1;
-			break;
-		case NORTH:
-			currentY -= 1;
+			offsetY = 1;
+			crossingOffsetX = 1;
 			break;
 		case SOUTH:
-			currentY += 1;
+			offsetX = -1;
+			crossingOffsetY = 1;
 			break;
-
 		default:
 			break;
 		}
+		
+		TrafficLight template = new TrafficLight(currentX+offsetX, currentY+offsetY, null);
+		TrafficLight trafficLight = tsAdapter.readTrafficLight(template);
+		
+		//Auf Kreuzung prüfen
+		Roxel previewRoxel = tsAdapter.readRoxelByPosition(currentX + crossingOffsetX, currentY + crossingOffsetY);
+		
+		if(trafficLight==null){
+			passable = true;
+		}else{
+			if(trafficLight.getStatus() == TrafficStatus.RED && previewRoxel.getCrossing()) {
+				passable = false;
+			}else{
+				passable = true;
+			}
+		}
+		
+		return passable;
 	}
 	
 	public Point getPosition(){
@@ -104,7 +194,7 @@ public class Car extends Thread {
 	public void run() {
 		
 		while(true){
-			this.move();
+			this.tryToMove();
 			try {
 				Thread.sleep(sleepTime);
 			} catch (InterruptedException e) {

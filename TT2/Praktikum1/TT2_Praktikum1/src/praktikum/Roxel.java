@@ -3,33 +3,44 @@ package praktikum;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
+import com.gigaspaces.annotation.pojo.SpaceClass;
+import com.gigaspaces.annotation.pojo.SpaceIndex;
+import com.gigaspaces.metadata.index.SpaceIndexType;
 
+@SpaceClass
 public class Roxel {
 	private Integer x;
 	private Integer y;
 	private Integer occupingCar;
 	private DirectionType direction;
+	private Boolean crossing;
 	
 	public Roxel(){
 		super();
 	}
 	
-	public Roxel(int x, int y, int occupingCar, DirectionType direction) {
+	public Roxel(int x, int y, int occupingCar, DirectionType direction, Boolean crossing) {
 		super();
 		this.x = x;
 		this.y = y;
 		this.occupingCar = occupingCar;
 		this.direction = direction;
+		this.crossing = crossing;
+	}
+	
+	public Roxel(int x, int y, int occupingCar, DirectionType direction) {
+		this(x, y, occupingCar, direction, null);
 	}
 	
 	public Roxel(int x, int y, int occupingCar) {
-		this(x, y, occupingCar, DirectionType.TODDECIDE);
+		this(x, y, occupingCar, DirectionType.TODDECIDE, null);
 	}
 	
 	public Roxel(int x, int y) {
-		this(x, y, 0, DirectionType.TODDECIDE);
+		this(x, y, 0, DirectionType.TODDECIDE, null);
 	}
 
+	@SpaceIndex(type=SpaceIndexType.BASIC)
 	public int getX() {
 		return x;
 	}
@@ -38,6 +49,7 @@ public class Roxel {
 		this.x = x;
 	}
 
+	@SpaceIndex(type=SpaceIndexType.BASIC)
 	public int getY() {
 		return y;
 	}
@@ -46,6 +58,7 @@ public class Roxel {
 		this.y = y;
 	}
 
+	@SpaceIndex(type=SpaceIndexType.EXTENDED)
 	public int getOccupingCar() {
 		return occupingCar;
 	}
@@ -66,6 +79,15 @@ public class Roxel {
 		return x + "-" + y + " " + direction + " " + occupingCar;
 	}
 	
+	@SpaceIndex(type=SpaceIndexType.BASIC)
+	public Boolean getCrossing() {
+		return crossing;
+	}
+
+	public void setCrossing(Boolean isCrossing) {
+		this.crossing = isCrossing;
+	}
+
 	public Image getImage(){
 		Image returnImage = null;
 		

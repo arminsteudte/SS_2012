@@ -5,18 +5,21 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.Rectangle;
 
 public class Simulation extends BasicGame {
 	
-	private static int TILE_ZOOM = 32;
+	private static int TILE_ZOOM = 15;
 	
 	private static int WIDTH = 800 ;
 	private static int HEIGHT = 600;
 	
 	public static final int BLOCK_FLAG = 1;
 	public static final int STREET_FLAG = 0;
+	public static final int CROSSING_FLAG = 2;
 	
 	private static Color COLOR_BACKGROUND = Color.lightGray;
 	private static Color COLOR_STREET = Color.darkGray;
@@ -47,6 +50,10 @@ public class Simulation extends BasicGame {
 					g.setColor(COLOR_STREET);
 					g.fill(new Rectangle(pixelX, pixelY, world.getRoxelLength()*TILE_ZOOM, world.getRoxelLength()*TILE_ZOOM));
 					break;
+				case CROSSING_FLAG:
+					g.setColor(COLOR_STREET);
+					g.fill(new Rectangle(pixelX, pixelY, world.getRoxelLength()*TILE_ZOOM, world.getRoxelLength()*TILE_ZOOM));
+					break;
 				case BLOCK_FLAG:
 					g.setColor(COLOR_BLOCK);
 					g.fill(new Rectangle(pixelX, pixelY, world.getRoxelLength()*TILE_ZOOM, world.getRoxelLength()*TILE_ZOOM));
@@ -60,30 +67,61 @@ public class Simulation extends BasicGame {
 			pixelY += world.getRoxelLength()*TILE_ZOOM;
 			pixelX = 0;
 		}
-		/*
-		for (Roxel roxel : world.getAllRoxels()) {
-			System.out.println(roxel.toString());
-			if(roxel.getOccupingCar()>0){
+		
+		Roxel[] occupiedRoxels = world.getAllOccupiedRoxels();
+		if(occupiedRoxels.length > 0 ){
+			for (Roxel roxel : occupiedRoxels) {
+				//System.out.println(roxel.toString());
 				g.setColor(Color.red);
-				g.drawImage(roxel.getImage(), roxel.getX()*world.getRoxelLength()*TILE_ZOOM, roxel.getY()*world.getRoxelLength()*TILE_ZOOM);
+				//g.drawImage(roxel.getImage(), roxel.getX()*world.getRoxelLength()*TILE_ZOOM, roxel.getY()*world.getRoxelLength()*TILE_ZOOM);	
+				Image car = roxel.getImage().getScaledCopy(TILE_ZOOM * world.getRoxelLength(), TILE_ZOOM*world.getRoxelLength());
+				g.drawImage(car, roxel.getX()*world.getRoxelLength()*TILE_ZOOM, roxel.getY()*world.getRoxelLength()*TILE_ZOOM);
 			}
+		}else{
+			System.out.println("Keine belegten Roxel gefunden.");
+		}
+		
+		TrafficLight[] trafficLights = world.getAllTrafficLights();
+		if(trafficLights.length > 0 ){
 			
-		}*/
-
+			TrafficStatus status = null;
+			int pixelFactor = world.getRoxelLength()*TILE_ZOOM;
+			int centerOffset = (world.getRoxelLength()*TILE_ZOOM/2);
+			
+					
+			for (TrafficLight trafficLight : trafficLights) {
+				
+				status = trafficLight.getStatus();
+				
+				switch (status) {
+				case GREEN:
+					g.setColor(Color.green);
+					break;
+				case RED:
+					g.setColor(Color.red);
+					break;
+				case OFF:
+					g.setColor(Color.gray);
+					break;
+				default:
+					break;
+				}
+				
+				g.fill(new Circle(trafficLight.getPosX()*pixelFactor + centerOffset , trafficLight.getPosY() * pixelFactor + centerOffset, TILE_ZOOM / 2));
+				
+			}
+		}
+		
 	}
 
 	@Override
 	public void init(GameContainer arg0) throws SlickException {
 		world = new World();
 		world.initWorld();
-
 	}
 
 	@Override
 	public void update(GameContainer arg0, int arg1) throws SlickException {
-		//for (Car car : world.getCars()) {
-		//	car.move();
-		//}
 
 	}
 
