@@ -89,6 +89,68 @@ public class Roxel {
 	}
 
 	public Image getImage(){
+		if(occupingCar == Simulation.PLAYER1_ID){
+			return getPlayer1Image();
+		}else if(occupingCar == Simulation.PLAYER2_ID){
+			return getPlayer2Image();
+		}else{
+			return getNormalImage();
+		}
+	}
+	
+	private Image getPlayer2Image(){
+		Image returnImage = null;
+		
+		try {
+			switch (direction) {
+			case WEST:
+				returnImage =  new Image("resource/gfx/player2_left.png");
+				break;
+			case EAST:
+				returnImage =  new Image("resource/gfx/player2_right.png");
+				break;
+			case NORTH:
+				returnImage =  new Image("resource/gfx/player2_up.png");
+				break;
+			case SOUTH:
+				returnImage =  new Image("resource/gfx/player2_down.png");
+				break;
+			default:
+				break;
+			}
+		} catch (SlickException e) {
+			System.out.println("Fehler: Grafik konnte nicht gefunden werden");
+		}
+		return returnImage;
+	}
+	
+	private Image getPlayer1Image(){
+		Image returnImage = null;
+		
+		try {
+			switch (direction) {
+			case WEST:
+				returnImage =  new Image("resource/gfx/player1_left.png");
+				break;
+			case EAST:
+				returnImage =  new Image("resource/gfx/player1_right.png");
+				break;
+			case NORTH:
+				returnImage =  new Image("resource/gfx/player1_up.png");
+				break;
+			case SOUTH:
+				returnImage =  new Image("resource/gfx/player1_down.png");
+				break;
+			default:
+				break;
+			}
+		} catch (SlickException e) {
+			System.out.println("Fehler: Grafik konnte nicht gefunden werden");
+		}
+		return returnImage;
+	}
+	
+	private Image getNormalImage(){
 		Image returnImage = null;
 		
 		try {

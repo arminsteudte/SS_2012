@@ -3,7 +3,9 @@ package praktikum;
 import java.util.ArrayList;
 
 public class World {
-
+	
+	private static final int MIN_CROSSING_DISTANCE_Y = 8;
+	private static final int MIN_CROSSING_DISTANCE_X = 16;
 
 	private int[][] map;
 	private int roxelLength;
@@ -17,10 +19,10 @@ public class World {
 		this.roxelLength = 0;
 		map = null;
 		this.streetStructure = new int[][]{
-				{Simulation.BLOCK_FLAG, Simulation.BLOCK_FLAG, Simulation.STREET_FLAG, Simulation.STREET_FLAG},
-				{Simulation.BLOCK_FLAG, Simulation.BLOCK_FLAG, Simulation.STREET_FLAG, Simulation.STREET_FLAG},
-				{Simulation.STREET_FLAG, Simulation.STREET_FLAG, Simulation.CROSSING_FLAG, Simulation.CROSSING_FLAG},
-				{Simulation.STREET_FLAG, Simulation.STREET_FLAG, Simulation.CROSSING_FLAG, Simulation.CROSSING_FLAG}
+				{Simulation.BLOCK_FLAG, Simulation.BLOCK_FLAG, Simulation.STREET_V_FLAG, Simulation.STREET_V_FLAG},
+				{Simulation.BLOCK_FLAG, Simulation.BLOCK_FLAG, Simulation.STREET_V_FLAG, Simulation.STREET_V_FLAG},
+				{Simulation.STREET_H_FLAG, Simulation.STREET_H_FLAG, Simulation.CROSSING_FLAG, Simulation.CROSSING_FLAG},
+				{Simulation.STREET_H_FLAG, Simulation.STREET_H_FLAG, Simulation.CROSSING_FLAG, Simulation.CROSSING_FLAG}
 		};
 	}
 
@@ -101,26 +103,6 @@ public class World {
 			}
 			timesFory++;
 		}
-		
-		/*
-		map = new int[mapStruct.getRoxelCountY()][mapStruct.getRoxelCountX()];
-		boolean block = true;
-		for (int y = 0; y < mapStruct.getRoxelCountY(); y++) {
-			for (int x = 0; x < mapStruct.getRoxelCountX(); x++) {
-				if (y % 2 == 0) {
-					if (block) {
-						map[y][x] = Simulation.BLOCK_FLAG;
-						block = false;
-					} else {
-						map[y][x] = Simulation.STREET_FLAG;
-						block = true;
-					}
-				} else {
-					map[y][x] = Simulation.STREET_FLAG;
-				}
-			}
-			block = true;
-		}*/
 	}
 	
 	public TrafficLight[] getAllTrafficLights(){
@@ -132,26 +114,38 @@ public class World {
 	}
 	
 	private void createRoxelRepresentation(){
-		
 		Roxel tempRoxel = null;
 		
 		for (int y = 0; y < map.length; y++) {
 			for (int x = 0; x < map[0].length; x++) {
-				if(map[y][x]==Simulation.STREET_FLAG){
+				if(map[y][x]==Simulation.STREET_V_FLAG || map[y][x]==Simulation.STREET_H_FLAG){
 					tempRoxel = new Roxel(x, y, 0, DirectionType.TODDECIDE, false);
 					tsAdapter.writeToSpace(tempRoxel);
 				} else if(map[y][x]==Simulation.CROSSING_FLAG){
 					tempRoxel = new Roxel(x, y, 0, DirectionType.TODDECIDE, true);
 					tsAdapter.writeToSpace(tempRoxel);
 				}
-
 			}	
 		}
 	}
 	
 	private void initCrossings(){
-		Crossing tempCrossing = new Crossing(2, 2, tsAdapter);
-		tempCrossing.start();
+		for (int y = 2; y < map.length; y+=MIN_CROSSING_DISTANCE_Y) {
+			for (int x = 2; x < map[0].length; x+=MIN_CROSSING_DISTANCE_X) {
+				Crossing tempCrossing = new Crossing(x, y, tsAdapter);
+				tempCrossing.start();
+			}
+		}
+	}
+	
+	public Car getPlayer1Car(){
+		Car pCar = createCar(Simulation.PLAYER1_ID, DirectionType.SOUTH, 0, 10, 4);
+		return  pCar;
+	}
+	
+	public Car getPlayer2Car(){
+		Car pCar = createCar(Simulation.PLAYER2_ID, DirectionType.NORTH, 0, 11, 4);
+		return  pCar;
 	}
 
 	private void initCars() {

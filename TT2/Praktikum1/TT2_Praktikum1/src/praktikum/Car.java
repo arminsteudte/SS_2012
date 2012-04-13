@@ -69,17 +69,25 @@ public class Car extends Thread {
 	}
 
 
-	public void tryToMove(){
+	public void tryToMove(DirectionType oldDirection){
 		if (crossingFreeToPass()){
-			move();
-		}
-		
+			move(oldDirection);
+			}
 	}
-
-	private void move(){
+	
+	public void tryToMove(){
+		this.tryToMove(direction);
+	}
+	
+	public void moveToDirection(DirectionType direction){
+		DirectionType oldDirection = this.direction;
+		this.direction = direction;
+		tryToMove(oldDirection);
+	}
+	
+	private void move(DirectionType oldDirection){
 		int nextposX = currentX;
 		int nextposY = currentY;
-	
 		
 		if(currentY==world.getMapHeight()-1 && direction == DirectionType.SOUTH){
 			nextposY = 0;
@@ -116,7 +124,7 @@ public class Car extends Thread {
 			newRoxel.setDirection(direction);
 			tsAdapter.writeToSpace(newRoxel);
 			
-			Roxel oldRoxel = tsAdapter.takeRoxel(new Roxel(currentX, currentY, identifier, direction));
+			Roxel oldRoxel = tsAdapter.takeRoxel(new Roxel(currentX, currentY, identifier, oldDirection));
 			
 			if(oldRoxel!=null){
 				//alten Roxel freigeben
@@ -127,13 +135,14 @@ public class Car extends Thread {
 				currentX = nextposX;
 				currentY = nextposY;
 			}else{
-				//System.out.println("Altes Roxel nicht gefunden!" + nextposX + " " + nextposY);
+				System.out.println("Altes Roxel nicht gefunden! ID:" + identifier + " " + nextposX + " " + nextposY);
+				this.direction = oldDirection;
 			}
 			
 		}else{
-			//System.out.println("Neues Roxel nicht gefunden!" + currentX + " " + currentY + " " + direction);
-		}		
-
+			System.out.println("Neues Roxel nicht gefunden! ID:" + identifier + " " + currentX + " " + currentY + " " + direction);
+			this.direction = oldDirection;
+		}
 	}
 	
 	

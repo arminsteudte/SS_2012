@@ -29,16 +29,16 @@ public class Crossing extends Thread {
 	}
 	
 	private void initTrafficLights(){
-		verticalTrafficLights[0] = new TrafficLight(posX-1, posY-1, TrafficStatus.OFF); //Ampel links oben
+		verticalTrafficLights[0] = new TrafficLight(posX-1, posY-1, TrafficStatus.GREEN); //Ampel links oben
 		tsAdapter.writeTrafficToSpace(verticalTrafficLights[0]);
 		
-		horizontalTrafficLights[0] = new TrafficLight(posX+2, posY-1, TrafficStatus.OFF); //Ampel rechts oben
+		horizontalTrafficLights[0] = new TrafficLight(posX+2, posY-1, TrafficStatus.GREEN); //Ampel rechts oben
 		tsAdapter.writeTrafficToSpace(horizontalTrafficLights[0]);
 		
-		verticalTrafficLights[1] = new TrafficLight(posX+2, posY+2, TrafficStatus.OFF); //Ampel rechts unten
+		verticalTrafficLights[1] = new TrafficLight(posX+2, posY+2, TrafficStatus.GREEN); //Ampel rechts unten
 		tsAdapter.writeTrafficToSpace(verticalTrafficLights[1]);
 		
-		horizontalTrafficLights[1] = new TrafficLight(posX-1, posY+2, TrafficStatus.OFF); //Ampel links unten
+		horizontalTrafficLights[1] = new TrafficLight(posX-1, posY+2, TrafficStatus.GREEN); //Ampel links unten
 		tsAdapter.writeTrafficToSpace(horizontalTrafficLights[1]);
 	}
 	
@@ -99,12 +99,12 @@ public class Crossing extends Thread {
 		}else{
 			for (TrafficLight trafficlight : horizontalTrafficLights) {
 				tsAdapter.takeTrafficLight(trafficlight);
-				trafficlight.setStatus(TrafficStatus.OFF);
+				trafficlight.setStatus(TrafficStatus.GREEN);
 				tsAdapter.writeTrafficToSpace(trafficlight);
 			}
 			for (TrafficLight trafficlight : verticalTrafficLights) {
 				tsAdapter.takeTrafficLight(trafficlight);
-				trafficlight.setStatus(TrafficStatus.OFF);
+				trafficlight.setStatus(TrafficStatus.GREEN);
 				tsAdapter.writeTrafficToSpace(trafficlight);
 			}
 		}
