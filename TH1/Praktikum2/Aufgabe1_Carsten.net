@@ -2,7 +2,7 @@
   <net id = "n1"
        type = "http://www.irt.rwth-aachen.de/download/netlab/pntd/pnsmNet">
     <name>
-      <text>Aufgabe1</text>
+      <text>Aufgabe1_Carsten</text>
     </name>
     <place id = "p1">
       <graphics>
@@ -306,7 +306,7 @@
                    y = "40"/>
       </graphics>
       <initialMarking>
-        <text>1</text>
+        <text>0</text>
       </initialMarking>
       <capacity>
         <text>1</text>
@@ -797,7 +797,7 @@ r&#252;ckw&#228;rts = Zug f&#228;hrt gegen den Uhrzeigersinn
 Stellen in der Mitte geben an ob der Gleisabschnitt frei ist
 Transitionen geben an ob ein Zug vorw&#228;rts oder r&#252;ckw&#228;rts fahren kann
 
-Anfangsbelegung: Je ein Zug auf Abschnitt 1 und 5 </text>
+Anfangsbelegung: Je ein Zug auf Abschnitt 1 und 5</text>
         </comment>
       </comments>
       <view xmlns = "http://www.irt.rwth-aachen.de/download/netlab"
