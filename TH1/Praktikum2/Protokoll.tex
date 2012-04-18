@@ -33,7 +33,7 @@
 \title{\titletext}
 
 %changehere Datum der Übung
-\date{23.03.2012}
+\date{18.04.2012}
 
 \pagestyle{scrheadings}
 %changehere
@@ -102,7 +102,7 @@ Dabei sollen folgende Aspekte beachtet werden:
 Im Folgenden sollen diese Aspekte in der oben genannten Reihenfolge betrachtet werden.
 
 \subsection{Umsetzung der Schranke}
-Abbildung \ref{fig:Schranke} zeigt die im Schienennetz eingebrachte Schranke zwischen dem ersten und dritten Gleisabschnitt. Ein Zug der auf Gleisabschnitt 1 steht und mittels der Transition "`rückwärts"' Gleisabschnitt 2 befahren will, hat als Vorbedingung die Stelle "`Schranke geschlossen"' und "`Abschnitt 2 frei"'. Damit wird sichergestellt, dass Gleisabschnitt 2 immer nur dann befahren werden kann, wenn die Schranke geschlossen und der Abschnitt nicht von einem Zug belegt ist. Gleiches gilt für Gleisabschnitt 3 bei Zügen die mittels der Transition "`vorwärts"' auf Gleisabschnitt 2 vorrücken wollen.\\
+Abbildung \ref{fig:Schranke} zeigt die im Schienennetz eingebrachte Schranke zwischen dem ersten und dritten Gleisabschnitt. Ein Zug der auf Gleisabschnitt 1 steht und mittels der Transition "`rückwärts"' Gleisabschnitt 2 befahren will, hat als Vorbedingung die Stellen "`Schranke geschlossen"' und "`Abschnitt 2 frei"'. Damit wird sichergestellt, dass Gleisabschnitt 2 immer nur dann befahren werden kann, wenn die Schranke geschlossen und der Abschnitt nicht von einem Zug belegt ist. Gleiches gilt für Gleisabschnitt 3 bei Zügen die mittels der Transition "`vorwärts"' auf Gleisabschnitt 2 vorrücken wollen.\\
 Die Schranke kann mittels der Transitionen "`Schranke öffnen"' und "`Schranke schließen"' geöffnet und geschlossen werden.
  
 \begin{figure}[htbp]
@@ -113,8 +113,8 @@ Die Schranke kann mittels der Transitionen "`Schranke öffnen"' und "`Schranke s
 
 \subsection{Umsetzung der Weiche}
 Abbildung \ref{fig:Weiche} zeigt die im Gleisnetz eingebrachte Weiche, die die beiden kreisförmigen Strecken zu einer acht verbindet.\\
-Ein Zug der auf Gleisabschnitt 6 steht, kann mittels der Transition "`nehme Abzweigung"' die Abzweigung befahren, um zum rechten kreisförmigen Segment zu gelangen, wenn die Abzweigung frei ist. Nimmt ein Zug auf Gleisabschnitt 6 die Abzweigung so, wird durch die Transition "`nehme Abzweigung"' der entsprechende Gleisabschnitt wieder auf frei gesetzt, das der Zug sich nun auf der Abzweigung befindet. Gleich gilt für Züge die sich auf Gleisabschnitt 2 im rechten kreisförmigen Segment befinden  und zum linken kreisförmigen Segment wechseln wollen.\\
-Nutzt ein Zug die Abzweigung, ist die Stelle  "`Abzweigung"' belegt. Die Transition  "`verlasse Abzweigung"' wird aktiviert wenn Gleisabschnitt 2 bzw. Gleisabschnitt 6 frei sind und ermöglichen es dem Zug, der sich auf der Abzweigung befindet wieder in den kreisförmigen Verkehr einzusteigen.\\
+Ein Zug der auf Gleisabschnitt 6 steht, kann mittels der Transition "`nehme Abzweigung"' die Abzweigung befahren, um zum rechten kreisförmigen Segment zu gelangen, wenn die Abzweigung frei ist. Nimmt ein Zug auf Gleisabschnitt 6 die Abzweigung so, wird durch die Transition "`nehme Abzweigung"' der entsprechende Gleisabschnitt wieder auf frei gesetzt, da der Zug sich nun auf der Abzweigung befindet. Gleich gilt für Züge die sich auf Gleisabschnitt 2 im rechten kreisförmigen Segment befinden  und zum linken kreisförmigen Segment wechseln wollen.\\
+Nutzt ein Zug die Abzweigung, ist die Stelle  "`Abzweigung"' belegt. Die Transition "`verlasse Abzweigung"' wird aktiviert wenn Gleisabschnitt 2 bzw. Gleisabschnitt 6 frei sind und ermöglichen es dem Zug, der sich auf der Abzweigung befindet, wieder in den kreisförmigen Verkehr einzusteigen.\\
 Mit dieser Modellierung ist sichergestellt, dass die Abzweigung in beide Richtungen befahren werden und auch in beide Richtungen verlassen werden kann. Zu jedem Zeitpunkt darf sich immer nur ein Zug auf der Abzweigung befinden.
 
 \begin{figure}[htbp]
@@ -134,21 +134,18 @@ Mit Hilf des Tools Netlab wurde den die folgenden S-Invarianten berechnet.
 	\label{fig:s_invarianten}
 \end{figure}
 
-Die orange markierten Invarianten repräsentieren die Beziehung zwischen Gleisabschnitt (z.B. S1) und Token (z.B. S)), welches einen freien Gleisabschnitt signalisiert.
+Die orange markierten Invarianten repräsentieren die Beziehung zwischen Gleisabschnitt (z.B. S1) und Token (z.B. S9), welches einen freien Gleisabschnitt signalisiert.
 Diese Invarianten sagen aus, dass jeweils immer nur ein Zug einen Gleisabschnitt befahren kann.\\
 
-Die grün markierten Invarianten beschreibt die Zusammenhänge der Stellen-Kreise (S1-S9; S17-S24) auf denen die Züge fahren.
-Dass alle Stellen in den Kreisen eine Gewicht von 1 besitzen, ist sichergestellt das beim Bewegen des Zuges keine neuen Züge erstellt werden.
-Es werden nur existierende Züge fortbewegt.
-Die Stelle S34 in dieser Invariante symbolisiert die Weiche, auch bei ihr ist sichergestellt dass keine neuen Züge erstellt werden.\\
+Die grün markierte Invariante beschreibt die Zusammenhänge der Stellen-Kreise (S1-S9; S17-S24) auf denen die Züge fahren.
+Da alle Stellen in den Kreisen ein Gewicht von 1 besitzen, ist sichergestellt, dass beim Bewegen des Zuges keine neuen Züge erstellt werden. Es werden nur existierende Züge fortbewegt. Die Stelle S34 in dieser Invariante symbolisiert die Weiche, auch bei ihr ist sichergestellt dass keine neuen Züge erstellt werden.\\
   
-Die blauen Markierungen repräsentieren den gleichen Aspekt für Stellen welche die "`Freitokens"' beinhalten und zur Signalisierung eines freien Gleisabschnitts dienen.
-Eine Gewichtung von 1 sagt dabei in diesem Fall aus, dass keine neuen "`Freitokens"' erzeugt werden und somit sichergestellt ist, dass sich immer nur ein Zug auf einem Gleisabschnitt befinden kann.\\
+Die blauen Markierungen repräsentieren den gleichen Aspekt für Stellen welche die "`Freitokens"' beinhalten und zur Signalisierung eines freien Gleisabschnitts dienen. Eine Gewichtung von 1 sagt dabei aus, dass keine neuen "`Freitokens"' erzeugt werden und somit sichergestellt ist, dass sich immer nur ein Zug auf einem Gleisabschnitt befinden kann.\\
 
 Das Schaltverhalten der eingebauten Schranke wird durch die gelb markierte Invariante beschrieben.
-Sie beschreibt, dass die Schranke nie gleichzeitig offen und geschlossen sein kann, was in der Aufgabenstellung auch gefordert wurde.\\
+Sie beschreibt, dass die Schranke nie gleichzeitig offen und geschlossen sein kann, wie es in der Aufgabenstellung gefordert wurde.\\
 
-Durch die rote Invariante ist sichergestellt, dass die Weiche nur durch einen Zug befahren werden kann und es ist sichergestellt dass beim Befahren der Weiche keine neuen Züge erzeugt werden.
+Durch die rote Invariante ist sichergestellt, dass die Weiche nur durch einen Zug befahren werden kann und beim Befahren der Weiche keine neuen Züge erzeugt werden.
 
 \subsection{T-Invarianten}
 Für das Netz aus Aufgabe 2 wurden von Netlab die folgenden T-Invarianten berechnet.
@@ -160,23 +157,37 @@ Für das Netz aus Aufgabe 2 wurden von Netlab die folgenden T-Invarianten berech
 \end{figure}
 
 Die Zyklen innerhalb des Petrinetzes, die das Befahren der beiden Kreise in Vorwärts- und Rückwärtsrichtung darstellen, wurden in den T-Invarianten blau markiert.
-Da Netlab nur einen Teil der T-Invarianten hier anzeigt, fehlt hier leider das Befahren des linken Kreises in Vorwärtsrichtung.
-Generell zeigen aber die Invarianten, dass beide kreisförmigen Gleisabschnitt sowohl vorwärts als auch rückwärts durchgängig befahren werden können.\\
+Da Netlab nur einen Teil der T-Invarianten anzeigt, fehlt in der Abbildung das Befahren des linken Kreises in Vorwärtsrichtung.
+Generell zeigen die Invarianten aber, dass beide kreisförmigen Gleisabschnitt sowohl vorwärts als auch rückwärts durchgängig befahren werden können.\\
 
 Die orangen Markierungen bedeuten, dass alle Gleisabschnitte sowohl vorwärts als auch rückwärts befahren werden können.
-Auch hier wird durch Netlab nur ein Teil der dazugehörigen Invarianten berechnet.
-Ein Beispiel sind die Transitionen T1 und T9 die zusammen mit der Stelle 1 das Vorwärts- sowie Rückwärtsfahren des ersten Gleisabschnitts realisieren.\\
+Auch hier wird durch Netlab nur ein Teil der dazugehörigen Invarianten berechnet. Ein Beispiel sind die Transitionen T1 und T9 die zusammen mit der Stelle 1 das Vorwärts- sowie Rückwärtsfahren des ersten Gleisabschnitts realisieren.\\
 
 Die Weiche wird in den T-Invarianten durch die roten Markierungen sichtbar.
-Der Zyklus hierbei beschreibt, dass in unserer Modellierung es möglich ist Züge auf den Gleisabschnitt der Weiche rauf- und runterfahren zu lassen.
-Dieses ist von beiden Kreisen aus möglich.
-Diese Eigenschaft war nicht explizit gefordert, widerspricht aber auch nicht der Aufgabenstellung.\\
+Der Zyklus beschreibt hierbei, dass es in unserer Modellierung möglich ist Züge auf den Gleisabschnitt der Weiche rauf- und runterfahren zu lassen. Dieses ist von beiden Kreisen aus möglich.\\
 
-Das Schalten der Schranke zwischen dem geöffneten und geschlossenem Zustand kann an der Gelben Markierung festgemacht werden.
+Das Schalten der Schranke zwischen dem geöffneten und geschlossenem Zustand kann an der gelben Markierung festgemacht werden.
 Es ist somit sichergestellt, dass sich die Schranke nur in einem dieser beiden Zustände befindet und es keine nicht definierten Zustände gibt. 
 
+\subsection{Erreichbarkeitsgraph}
+Um einen möglichst übersichtlichen Graphen zu erhalten, haben wir zunächst den Erreichbarkeitsgraphen für Aufgabe 1 mit einem einzigen Zug erzeugt. Dieser wird in Abbildung \ref{fig:EG1} dargestellt. Die Richtigkeit unserer Modellierung ist daran zu erkennen, dass zwischen den einzelnen Kombinationen möglicher Steller jeweils nur zwei Kanten existieren. Je eine Kante für die Vorwärts- und eine für die Rückwärts-Bewegung des Zuges.
+
+\begin{figure}[htbp]
+	\centering	\includegraphics[height=1.0\textheight]{Bilder/Aufgabe1_EG.png}
+	\caption{Erreichbarkeitsgraph für Aufgabe 1}
+	\label{fig:EG1}
+\end{figure}
+
+Der Erreichbarkeitsgraph mit einem Zug für Aufgabe 2 ist in Abbildung \ref{fig:EG2} dargestellt. Durch die die zusätzlichen Stellen und das Vorhandensein der Schranke, die unabhängig von der aktuellen Position des Zuges geschaltet werden kann, sind in diesem Erreichbarkeitsgraphen wesentlich mehr Kombinationen belegter Stellen möglich. Da die Schranke in jedem Zustand mit den Transitionen "`Schranke öffnen (T33)"' und "`Schranke schließen (T34)"' schalten kann, verdoppelt sich allein durch das Vorhandensein der Schranke die Anzahl an möglichen Kombinationen. Auch für diesen Graphen gilt, dass mit zwei Kanten jeweils die Vorwärts- und Rückwärts-Bewegung des Zuges abgebildet wird.
+
+\begin{figure}[htbp]
+	\centering	\includegraphics[height=1.0\textheight]{Bilder/Aufgabe2_EG.png}
+	\caption{Erreichbarkeitsgraph für Aufgabe 2}
+	\label{fig:EG2}
+\end{figure}
+
 \subsection{Verhalten mit mehreren Zügen}
-Setzt man von Beginn an eine größere Anzahl von Zügen auf das Streckennetz, so haben die Züge weniger Möglichkeiten sich zu bewegen, da mehr Gleisabschnitte blockiert sind. Aus diesem Grund verkleinert sich der Erreichbarkeitsgraph des Netzes mit dem jedem Zug der hinzugefügt wird solange, bis alle Gleisabschnitt besetzt sind und es damit keine Bewegungsmöglichkeiten mehr gibt. Ein solche Situation würde einen Erreichbarkeitsgraphen mit der Anfangsmarkierung erzeugen der keine Kanten besitzt, da keine Transition schalten kann, die einen Zug bewegt. Als Ausnahme hiervon ist das öffnen und schließen der Schranke zu sehen, das unabhängig von den Zügen geschehen kann.
+Setzt man von Beginn an eine größere Anzahl von Zügen auf das Streckennetz, so haben die Züge weniger Möglichkeiten sich zu bewegen, da mehr Gleisabschnitte blockiert sind. Da es aber durch mehr Züge auf dem Netz vielmehr mögliche Kombinationen gibt, wie die Stellen belegt sein können, wird sich der Erreichbarkeitsgraph des Netzes mit jedem Zug der hinzugefügt wird vergrößern. Dies geschieht solange, bis alle Gleisabschnitt besetzt sind und es damit keine Bewegungsmöglichkeiten mehr gibt. Ein solche Situation würde einen Erreichbarkeitsgraphen mit der Anfangsmarkierung erzeugen der keine Kanten besitzt, da keine Transition schalten kann, die einen Zug bewegt. Als Ausnahme hiervon ist das öffnen und schließen der Schranke zu sehen, das unabhängig von den Zügen geschehen kann.
  
 \end{document}
 

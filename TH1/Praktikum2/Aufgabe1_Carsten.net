@@ -96,7 +96,7 @@
                    y = "40"/>
       </graphics>
       <initialMarking>
-        <text>1</text>
+        <text>0</text>
       </initialMarking>
       <capacity>
         <text>1</text>
@@ -264,7 +264,7 @@
                    y = "40"/>
       </graphics>
       <initialMarking>
-        <text>0</text>
+        <text>1</text>
       </initialMarking>
       <capacity>
         <text>1</text>
@@ -306,7 +306,7 @@
                    y = "40"/>
       </graphics>
       <initialMarking>
-        <text>0</text>
+        <text>1</text>
       </initialMarking>
       <capacity>
         <text>1</text>
@@ -808,7 +808,7 @@ Anfangsbelegung: Je ein Zug auf Abschnitt 1 und 5</text>
             description = "true"
             colored_invariants = "true">
         <scrollerposition x = "0"
-                          y = "0"/>
+                          y = "10"/>
       </view>
       <calculation xmlns = "http://www.irt.rwth-aachen.de/download/netlab"
                    autocalculate_invariants = "false"
