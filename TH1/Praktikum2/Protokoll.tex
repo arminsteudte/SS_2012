@@ -88,7 +88,60 @@ Auf diese Weise kann nur ein Zug zur selben Zeit einen Gleisabschnitt befahren.
 
 \subsection{Zugmodellierung}
 Züge werden durch Token auf Gleisabschnitts-Stellen modelliert.
-Zwei Züge sind damit zwei Token die sich auf unterschiedlichen Stellen befinden. 
+Zwei Züge sind damit zwei Token die sich auf unterschiedlichen Stellen befinden.
+
+\section{Aufgabe 3}
+
+\subsection{S-Invarianten}
+Mit Hilf des Tools Netlab wurde den die folgenden S-Invarianten berechnet.
+
+\begin{figure}[htbp]
+	\centering	\includegraphics[width=1.0\textwidth]{Bilder/s_invarianten.png}
+	\caption{S-Invarianten des Netzes aus Aufgabe 2}
+	\label{fig:s_invarianten}
+\end{figure}
+
+Die orange markierten Invarianten repräsentieren die Beziehung zwischen Gleisabschnitt (z.B. S1) und Token (z.B. S)), welches einen freien Gleisabschnitt signalisiert.
+Diese Invarianten sagen aus, dass jeweils immer nur ein Zug einen Gleisabschnitt befahren kann.\\
+
+Die grün markierten Invarianten beschreibt die Zusammenhänge der Stellen-Kreise (S1-S9; S17-S24) auf denen die Züge fahren.
+Dass alle Stellen in den Kreisen eine Gewicht von 1 besitzen, ist sichergestellt das beim Bewegen des Zuges keine neuen Züge erstellt werden.
+Es werden nur existierende Züge fortbewegt.
+Die Stelle S34 in dieser Invariante symbolisiert die Weiche, auch bei ihr ist sichergestellt dass keine neuen Züge erstellt werden.\\
+  
+Die blauen Markierungen repräsentieren den gleichen Aspekt für Stellen welche die "`Freitokens"' beinhalten und zur Signalisierung eines freien Gleisabschnitts dienen.
+Eine Gewichtung von 1 sagt dabei in diesem Fall aus, dass keine neuen "`Freitokens"' erzeugt werden und somit sichergestellt ist, dass sich immer nur ein Zug auf einem Gleisabschnitt befinden kann.\\
+
+Das Schaltverhalten der eingebauten Schranke wird durch die gelb markierte Invariante beschrieben.
+Sie beschreibt, dass die Schranke nie gleichzeitig offen und geschlossen sein kann, was in der Aufgabenstellung auch gefordert wurde.\\
+
+Durch die rote Invariante ist sichergestellt, dass die Weiche nur durch einen Zug befahren werden kann und es ist sichergestellt dass beim Befahren der Weiche keine neuen Züge erzeugt werden.
+
+\subsection{T-Invarianten}
+Für das Netz aus Aufgabe 2 wurden von Netlab die folgenden T-Invarianten berechnet.
+
+\begin{figure}[htbp]
+	\centering	\includegraphics[width=1.0\textwidth]{Bilder/t_invarianten.png}
+	\caption{T-Invarianten des Netzes aus Aufgabe 2}
+	\label{fig:T_invarianten}
+\end{figure}
+
+Die Zyklen innerhalb des Petrinetzes, die das Befahren der beiden Kreise in Vorwärts- und Rückwärtsrichtung darstellen, wurden in den T-Invarianten blau markiert.
+Da Netlab nur einen Teil der T-Invarianten hier anzeigt, fehlt hier leider das Befahren des linken Kreises in Vorwärtsrichtung.
+Generell zeigen aber die Invarianten, dass beide kreisförmigen Gleisabschnitt sowohl vorwärts als auch rückwärts durchgängig befahren werden können.\\
+
+Die orangen Markierungen bedeuten, dass alle Gleisabschnitte sowohl vorwärts als auch rückwärts befahren werden können.
+Auch hier wird durch Netlab nur ein Teil der dazugehörigen Invarianten berechnet.
+Ein Beispiel sind die Transitionen T1 und T9 die zusammen mit der Stelle 1 das Vorwärts- sowie Rückwärtsfahren des ersten Gleisabschnitts realisieren.\\
+
+Die Weiche wird in den T-Invarianten durch die roten Markierungen sichtbar.
+Der Zyklus hierbei beschreibt, dass in unserer Modellierung es möglich ist Züge auf den Gleisabschnitt der Weiche rauf- und runterfahren zu lassen.
+Dieses ist von beiden Kreisen aus möglich.
+Diese Eigenschaft war nicht explizit gefordert, widerspricht aber auch nicht der Aufgabenstellung.\\
+
+Das Schalten der Schranke zwischen dem geöffneten und geschlossenem Zustand kann an der Gelben Markierung festgemacht werden.
+Es ist somit sichergestellt, dass sich die Schranke nur in einem dieser beiden Zustände befindet und es keine nicht definierten Zustände gibt. 
+ 
 
 \end{document}
 
