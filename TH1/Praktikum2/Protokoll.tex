@@ -90,6 +90,39 @@ Auf diese Weise kann nur ein Zug zur selben Zeit einen Gleisabschnitt befahren.
 Züge werden durch Token auf Gleisabschnitts-Stellen modelliert.
 Zwei Züge sind damit zwei Token die sich auf unterschiedlichen Stellen befinden.
 
+\section{Aufgabe 2}
+In dieser Aufgabe ist eine Modelleisenbahn in Form einer acht zu modellieren.
+Dabei sollen folgende Aspekte beachtet werden:
+\begin{itemize}
+	\item Es sollen eine Schranke geben.
+	\item Züge dürfen die Schranke nur passieren, wenn die die Schranke geschlossen ist.
+	\item Es soll eine Weiche geben, die die beiden Kreise zu einer acht verbindet.
+	\item Die Weiche soll in beide Richtungen befahrbar sein.
+\end{itemize}
+Im Folgenden sollen diese Aspekte in der oben genannten Reihenfolge betrachtet werden.
+
+\subsection{Umsetzung der Schranke}
+Abbildung \ref{fig:Schranke} zeigt die im Schienennetz eingebrachte Schranke zwischen dem ersten und dritten Gleisabschnitt. Ein Zug der auf Gleisabschnitt 1 steht und mittels der Transition "`rückwärts"' Gleisabschnitt 2 befahren will, hat als Vorbedingung die Stelle "`Schranke geschlossen"' und "`Abschnitt 2 frei"'. Damit wird sichergestellt, dass Gleisabschnitt 2 immer nur dann befahren werden kann, wenn die Schranke geschlossen und der Abschnitt nicht von einem Zug belegt ist. Gleiches gilt für Gleisabschnitt 3 bei Zügen die mittels der Transition "`vorwärts"' auf Gleisabschnitt 2 vorrücken wollen.\\
+Die Schranke kann mittels der Transitionen "`Schranke öffnen"' und "`Schranke schließen"' geöffnet und geschlossen werden.
+ 
+\begin{figure}[htbp]
+	\centering	\includegraphics[width=1.0\textwidth]{Bilder/Aufgabe2_Schranke.png}
+	\caption{Umsetzung der Schranke}
+	\label{fig:Schranke}
+\end{figure}
+
+\subsection{Umsetzung der Weiche}
+Abbildung \ref{fig:Weiche} zeigt die im Gleisnetz eingebrachte Weiche, die die beiden kreisförmigen Strecken zu einer acht verbindet.\\
+Ein Zug der auf Gleisabschnitt 6 steht, kann mittels der Transition "`nehme Abzweigung"' die Abzweigung befahren, um zum rechten kreisförmigen Segment zu gelangen, wenn die Abzweigung frei ist. Nimmt ein Zug auf Gleisabschnitt 6 die Abzweigung so, wird durch die Transition "`nehme Abzweigung"' der entsprechende Gleisabschnitt wieder auf frei gesetzt, das der Zug sich nun auf der Abzweigung befindet. Gleich gilt für Züge die sich auf Gleisabschnitt 2 im rechten kreisförmigen Segment befinden  und zum linken kreisförmigen Segment wechseln wollen.\\
+Nutzt ein Zug die Abzweigung, ist die Stelle  "`Abzweigung"' belegt. Die Transition  "`verlasse Abzweigung"' wird aktiviert wenn Gleisabschnitt 2 bzw. Gleisabschnitt 6 frei sind und ermöglichen es dem Zug, der sich auf der Abzweigung befindet wieder in den kreisförmigen Verkehr einzusteigen.\\
+Mit dieser Modellierung ist sichergestellt, dass die Abzweigung in beide Richtungen befahren werden und auch in beide Richtungen verlassen werden kann. Zu jedem Zeitpunkt darf sich immer nur ein Zug auf der Abzweigung befinden.
+
+\begin{figure}[htbp]
+	\centering	\includegraphics[width=1.0\textwidth]{Bilder/Aufgabe2_Weiche.png}
+	\caption{Umsetzung der Weiche}
+	\label{fig:Weiche}
+\end{figure}
+
 \section{Aufgabe 3}
 
 \subsection{S-Invarianten}
@@ -141,44 +174,9 @@ Diese Eigenschaft war nicht explizit gefordert, widerspricht aber auch nicht der
 
 Das Schalten der Schranke zwischen dem geöffneten und geschlossenem Zustand kann an der Gelben Markierung festgemacht werden.
 Es ist somit sichergestellt, dass sich die Schranke nur in einem dieser beiden Zustände befindet und es keine nicht definierten Zustände gibt. 
- 
 
-\section{Aufgabe 2}
-In dieser Aufgabe ist eine Modelleisenbahn in Form einer acht zu modellieren.
-Dabei sollen folgende Aspekte beachtet werden:
-\begin{itemize}
-	\item Es sollen eine Schranke geben.
-	\item Züge dürfen die Schranke nur passieren, wenn die die Schranke geschlossen ist.
-	\item Es soll eine Weiche geben, die die beiden Kreise zu einer acht verbindet.
-	\item Die Weiche soll in beide Richtungen befahrbar sein.
-\end{itemize}
-Im Folgenden sollen diese Aspekte in der oben genannten Reihenfolge betrachtet werden.
-
-\subsection{Umsetzung der Schranke}
-Abbildung \ref{fig:Schranke} zeigt die im Schienennetz eingebrachte Schranke zwischen dem ersten und dritten Gleisabschnitt. Ein Zug der auf Gleisabschnitt 1 steht und mittels der Transition "`rückwärts"' Gleisabschnitt 2 befahren will, hat als Vorbedingung die Stelle "`Schranke geschlossen"' und "`Abschnitt 2 frei"'. Damit wird sichergestellt, dass Gleisabschnitt 2 immer nur dann befahren werden kann, wenn die Schranke geschlossen und der Abschnitt nicht von einem Zug belegt ist. Gleiches gilt für Gleisabschnitt 3 bei Zügen die mittels der Transition "`vorwärts"' auf Gleisabschnitt 2 vorrücken wollen.\\
-Die Schranke kann mittels der Transitionen "`Schranke öffnen"' und "`Schranke schließen"' geöffnet und geschlossen werden.
- 
-\begin{figure}[htbp]
-	\centering	\includegraphics[width=1.0\textwidth]{Bilder/Aufgabe2_Schranke.png}
-	\caption{Umsetzung der Schranke}
-	\label{fig:Schranke}
-\end{figure}
-
-\subsection{Umsetzung der Weiche}
-Abbildung \ref{fig:Weiche} zeigt die im Gleisnetz eingebrachte Weiche, die die beiden kreisförmigen Strecken zu einer acht verbindet.\\
-Ein Zug der auf Gleisabschnitt 6 steht, kann mittels der Transition "`nehme Abzweigung"' die Abzweigung befahren, um zum rechten kreisförmigen Segment zu gelangen, wenn die Abzweigung frei ist. Nimmt ein Zug auf Gleisabschnitt 6 die Abzweigung so, wird durch die Transition "`nehme Abzweigung"' der entsprechende Gleisabschnitt wieder auf frei gesetzt, das der Zug sich nun auf der Abzweigung befindet. Gleich gilt für Züge die sich auf Gleisabschnitt 2 im rechten kreisförmigen Segment befinden  und zum linken kreisförmigen Segment wechseln wollen.\\
-Nutzt ein Zug die Abzweigung, ist die Stelle  "`Abzweigung"' belegt. Die Transition  "`verlasse Abzweigung"' wird aktiviert wenn Gleisabschnitt 2 bzw. Gleisabschnitt 6 frei sind und ermöglichen es dem Zug, der sich auf der Abzweigung befindet wieder in den kreisförmigen Verkehr einzusteigen.\\
-Mit dieser Modellierung ist sichergestellt, dass die Abzweigung in beide Richtungen befahren werden und auch in beide Richtungen verlassen werden kann. Zu jedem Zeitpunkt darf sich immer nur ein Zug auf der Abzweigung befinden.
-
-\begin{figure}[htbp]
-	\centering	\includegraphics[width=1.0\textwidth]{Bilder/Aufgabe2_Weiche.png}
-	\caption{Umsetzung der Weiche}
-	\label{fig:Weiche}
-\end{figure}
-
-\end{document}
-
-\section{Aufgabe 3}
 \subsection{Verhalten mit mehreren Zügen}
 Setzt man von Beginn an eine größere Anzahl von Zügen auf das Streckennetz, so haben die Züge weniger Möglichkeiten sich zu bewegen, da mehr Gleisabschnitte blockiert sind. Aus diesem Grund verkleinert sich der Erreichbarkeitsgraph des Netzes mit dem jedem Zug der hinzugefügt wird solange, bis alle Gleisabschnitt besetzt sind und es damit keine Bewegungsmöglichkeiten mehr gibt. Ein solche Situation würde einen Erreichbarkeitsgraphen mit der Anfangsmarkierung erzeugen der keine Kanten besitzt, da keine Transition schalten kann, die einen Zug bewegt. Als Ausnahme hiervon ist das öffnen und schließen der Schranke zu sehen, das unabhängig von den Zügen geschehen kann.
+ 
+\end{document}
 
