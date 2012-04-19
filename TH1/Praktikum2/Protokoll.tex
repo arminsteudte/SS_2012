@@ -169,22 +169,32 @@ Der Zyklus beschreibt hierbei, dass es in unserer Modellierung möglich ist Züg
 Das Schalten der Schranke zwischen dem geöffneten und geschlossenem Zustand kann an der gelben Markierung festgemacht werden.
 Es ist somit sichergestellt, dass sich die Schranke nur in einem dieser beiden Zustände befindet und es keine nicht definierten Zustände gibt. 
 
-\subsection{Erreichbarkeitsgraph}
-Um einen möglichst übersichtlichen Graphen zu erhalten, haben wir zunächst den Erreichbarkeitsgraphen für Aufgabe 1 mit einem einzigen Zug erzeugt. Dieser wird in Abbildung \ref{fig:EG1} dargestellt. Die Richtigkeit unserer Modellierung ist daran zu erkennen, dass zwischen den einzelnen Kombinationen möglicher Steller jeweils nur zwei Kanten existieren. Je eine Kante für die Vorwärts- und eine für die Rückwärts-Bewegung des Zuges.
+\subsection{Überdeckungsgraph}
+Um einen möglichst übersichtlichen Graphen zu erhalten, haben wir zunächst den Überdeckungsgraphen für Aufgabe 1 mit einem einzigen Zug erzeugt. Dieser wird in Abbildung \ref{fig:UG1} dargestellt. Die Richtigkeit unserer Modellierung ist daran zu erkennen, dass zwischen den einzelnen Kombinationen möglicher Steller jeweils nur zwei Kanten existieren. Je eine Kante für die Vorwärts- und eine für die Rückwärts-Bewegung des Zuges.
 
 \begin{figure}[htbp]
-	\centering	\includegraphics[height=1.0\textheight]{Bilder/Aufgabe1_EG.png}
-	\caption{Erreichbarkeitsgraph für Aufgabe 1}
-	\label{fig:EG1}
+	\centering	\includegraphics[height=1.0\textheight]{Bilder/Aufgabe1_UG.png}
+	\caption{Überdeckungsgraph für Aufgabe 1}
+	\label{fig:UG1}
 \end{figure}
 
-Der Erreichbarkeitsgraph mit einem Zug für Aufgabe 2 ist in Abbildung \ref{fig:EG2} dargestellt. Durch die die zusätzlichen Stellen und das Vorhandensein der Schranke, die unabhängig von der aktuellen Position des Zuges geschaltet werden kann, sind in diesem Erreichbarkeitsgraphen wesentlich mehr Kombinationen belegter Stellen möglich. Da die Schranke in jedem Zustand mit den Transitionen "`Schranke öffnen (T33)"' und "`Schranke schließen (T34)"' schalten kann, verdoppelt sich allein durch das Vorhandensein der Schranke die Anzahl an möglichen Kombinationen. Auch für diesen Graphen gilt, dass mit zwei Kanten jeweils die Vorwärts- und Rückwärts-Bewegung des Zuges abgebildet wird.
+Der Überdeckungsgraph mit einem Zug für Aufgabe 2 ist in Abbildung \ref{fig:UG2} dargestellt. Durch die die zusätzlichen Stellen und das Vorhandensein der Schranke, die unabhängig von der aktuellen Position des Zuges geschaltet werden kann, sind in diesem Überdeckungsgraphen wesentlich mehr Kombinationen belegter Stellen möglich. Da die Schranke in jedem Zustand mit den Transitionen "`Schranke öffnen (T33)"' und "`Schranke schließen (T34)"' schalten kann, verdoppelt sich allein durch das Vorhandensein der Schranke die Anzahl an möglichen Kombinationen. Auch für diesen Graphen gilt, dass mit zwei Kanten jeweils die Vorwärts- und Rückwärts-Bewegung des Zuges abgebildet wird.
 
 \begin{figure}[htbp]
-	\centering	\includegraphics[height=1.0\textheight]{Bilder/Aufgabe2_EG.png}
-	\caption{Erreichbarkeitsgraph für Aufgabe 2}
-	\label{fig:EG2}
+	\centering	\includegraphics[height=1.0\textheight]{Bilder/Aufgabe2_UG.png}
+	\caption{Überdeckungsgraph für Aufgabe 2}
+	\label{fig:UG2}
 \end{figure}
+
+\subsection{Kondensationsgraph}
+Der aus Netlab generierte Kondensationsgraph ist winzig und damit ab sofort mein Lieblingsgraph.
+
+\begin{figure}[htbp]
+	\centering	\includegraphics[width=0.2\textwidth]{Bilder/Aufgabe2_KG.png}
+	\caption{Kondensationsgraph für Aufgabe 2}
+	\label{fig:KG1}
+\end{figure}
+
 
 \subsection{Verhalten mit mehreren Zügen}
 Setzt man von Beginn an eine größere Anzahl von Zügen auf das Streckennetz, so haben die Züge weniger Möglichkeiten sich zu bewegen, da mehr Gleisabschnitte blockiert sind. Da es aber durch mehr Züge auf dem Netz vielmehr mögliche Kombinationen gibt, wie die Stellen belegt sein können, wird sich der Erreichbarkeitsgraph des Netzes mit jedem Zug der hinzugefügt wird vergrößern. Dies geschieht solange, bis alle Gleisabschnitt besetzt sind und es damit keine Bewegungsmöglichkeiten mehr gibt. Ein solche Situation würde einen Erreichbarkeitsgraphen mit der Anfangsmarkierung erzeugen der keine Kanten besitzt, da keine Transition schalten kann, die einen Zug bewegt. Als Ausnahme hiervon ist das öffnen und schließen der Schranke zu sehen, das unabhängig von den Zügen geschehen kann.
