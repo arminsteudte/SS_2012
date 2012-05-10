@@ -107,14 +107,26 @@ Wenn ein $t \in T$ lebendig ist, muss es $\forall M \in EG$ M-erreichbar sein, d
 Wenn das Netz lebendig ist, sind alle Transitionen lebendig und damit $\forall M \in EG$ M-erreichbar.
 
 \item{Erreichbarkeit / Reversibilität}\\
+Reversibilität $\Rightarrow$ Erreichbarkeit\\
+Wenn ein Netz reversibel ist, muss es einen Weg von $M_{0} \overset{*}{\rightarrow} M \overset{*}{\rightarrow} M_{0}$ geben, somit gilt: $\forall t \in T$ sind von jeder $M \in EG$ M-erreichbar.
+Die Umkehrung gilt nicht! Erreichbarkeit $\nRightarrow$ Reversibilität
 
 \item{Erreichbarkeit / Beschränktheit}\\
+Es gibt keinen Zusammenhang. Da die Erreichbarkeit $\forall t \in T$ ein notwendiges Kriterium dafür ist, dass ein Netz lebendig ist, kann an dieser Stelle auf die Beispiele aus Punkt 2 verwiesen werden.\\
+Ein Netz kann beschränkt sein und alle $t \in T$ sind erreichbar (lebendig) (Abbildung \ref{fig:BL}), beschränkt und nicht alle $t \in T$ sind erreichbar (nicht lebendig) (Abbildung \ref{fig:BnL}), unbeschränkt und alle $t \in T$ sind erreichbar (lebendig) (Abbildung \ref{fig:nBL}) und unbeschränkt und nicht alle $t \in T$ sind erreichbar (nicht lebendig) sein (Abbildung \ref{fig:nBnL}).
 
 \item{Stelleninvarianten / Lebendigkeit}\\
+Stelleninvarianten sagen etwas über die Beschränktheit von Netzen aus. Da bereits gezeigt wurde, dass es keinen Zusammenhang zwischen Beschränktheit und Lebendigkeit gibt, sei hier auf die Beispiele aus Punkt 2 verwiesen.\\
+Für die beschränkten Netze aus Abbildung \ref{fig:BL} und \ref{fig:BnL} gibt es Stelleninvarianten, für die unbeschränkten Netze aus Abbildung \ref{fig:nBL} und \ref{fig:nBnL} gibt es keine Stelleninvarianten unabhängig davon ob das Netz lebendig ist oder nicht.
 
 \item{Stelleninvarianten / Reversibilität}\\
+Es gibt keinen direkten Zusammenhang, beide Begriffe sagen nur etwas über die Beschränktheit eines Netzes aus. Gibt es keine Stelleninvariante ist das Netz unbeschränkt und kann folglich nicht reversibel sein.
+Reversibilität $\Rightarrow$ Beschränktheit $\Leftarrow$ $\forall p \in P$ $I_{P}(p) > 0$ und $I_{P}(p')\geq 0$ $\forall p' \in P$
 
 \item{Stelleninvarianten / Beschränktheit}\\
+$\forall p \in P$ $I_{P}(p) > 0$ und $I_{P}(p')\geq 0$ $\forall p' \in P$ $\Rightarrow$ p ist beschränkt\\
+Gehören alle $p \in P$ einer solchen positiven Stelleninvariante an $\Rightarrow$ Netz ist beschränkt\\
+Die Umkehrung gilt nicht! Beschränktheit $\nRightarrow$ $\forall p \in P$ gehören positiver Stelleninvariante an
 
 \item{Stelleninvarianten / Erreichbarkeit}\\
 
