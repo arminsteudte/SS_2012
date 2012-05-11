@@ -85,21 +85,52 @@ Zwischen der Beschränktheit eines Netzes und seiner Lebendigkeit gibt es keinen
 \begin{minipage}[hbt]{7cm}
 	\centering
 	\includegraphics[width=0.7\textwidth]{Bilder/2_Nicht_Beschraenkt_und_Lebendig.png}
-	\caption{nicht beschränktes und lebendiges Netz}
+	\caption{unbeschränktes und lebendiges Netz}
 	\label{fig:nBL}
 \end{minipage}
 \hfill
 \begin{minipage}[hbt]{7cm}
 	\centering
 	\includegraphics[width=0.7\textwidth]{Bilder/2_Nicht_Beschraenkt_nicht_Lebendig.png}
-	\caption{nicht beschränktes und nicht lebendiges Netz}
+	\caption{unbeschränktes und nicht lebendiges Netz}
 	\label{fig:nBnL}
 \end{minipage}
 \end{figure}
 
 \item{Beschränktheit / Reversibilität}\\
-Reversibilität $\Rightarrow$ Beschränktheit, da der Erreichbarkeitsgraph des Netzes endlich sein muss, weil $\forall M \in EG$ gilt: $M_{0} \overset{*}{\rightarrow} M \overset{*}{\rightarrow} M_{0}$. Das heißt, das Netz muss aus jeder beliebigen Markierung wieder zurück zur Anfangsmarkierung kommen, was bei unbeschränkten Netzen nicht möglich ist.\\
-Die Umkehrung gilt nicht! Beschränktheit $\nRightarrow$ Reversibilität
+Zwischen Beschränktheit und Reversibilität eines Netzes gibt es keinen direkten Zusammenhang. Ein Netz kann beschränkt und reversibel (Abbildung \ref{fig:BR}), beschränkt und nicht reversibel (Abbildung \ref{fig:BnR}), unbeschränkt und reversibel (Abbildung \ref{fig:nBR}) und unbeschränkt und nicht reversibel sein (Abbildung \ref{fig:nBnR}).
+
+
+\begin{figure}
+\begin{minipage}[hbt]{7cm}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/3_beschraenkt_und_reversibel.png}
+	\caption{beschränktes und reversibles Netz}
+	\label{fig:BR}
+\end{minipage}
+\hfill
+\begin{minipage}[hbt]{7cm}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/3_beschraenkt_nicht_reversibel.png}
+	\caption{beschränktes und nicht reversibles Netz}
+	\label{fig:BnR}
+\end{minipage}
+\end{figure}
+\begin{figure}
+\begin{minipage}[hbt]{7cm}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/3_unbeschraenkt_und_reversibel.png}
+	\caption{unbeschränktes und reversibles Netz}
+	\label{fig:nBR}
+\end{minipage}
+\hfill
+\begin{minipage}[hbt]{7cm}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/3_unbeschraenkt_nicht_reversibel.png}
+	\caption{unbeschränktes und nicht reversibles Netz}
+	\label{fig:nBnR}
+\end{minipage}
+\end{figure}
 
 \item{Erreichbarkeit / Lebendigkeit}\\
 Lebendigkeit $\Rightarrow$ Erreichbarkeit\\
@@ -120,8 +151,7 @@ Stelleninvarianten sagen etwas über die Beschränktheit von Netzen aus. Da bere
 Für die beschränkten Netze aus Abbildung \ref{fig:BL} und \ref{fig:BnL} gibt es Stelleninvarianten, für die unbeschränkten Netze aus Abbildung \ref{fig:nBL} und \ref{fig:nBnL} gibt es keine Stelleninvarianten unabhängig davon ob das Netz lebendig ist oder nicht.
 
 \item{Stelleninvarianten / Reversibilität}\\
-Es gibt keinen direkten Zusammenhang, beide Begriffe sagen nur etwas über die Beschränktheit eines Netzes aus. Gibt es keine Stelleninvariante ist das Netz unbeschränkt und kann folglich nicht reversibel sein.
-Reversibilität $\Rightarrow$ Beschränktheit $\Leftarrow$ $\forall p \in P$ $I_{P}(p) > 0$ und $I_{P}(p')\geq 0$ $\forall p' \in P$
+Es gibt keinen direkten Zusammenhang. Gibt es keine Stelleninvariante ist das Netz unbeschränkt und kann sowohl reversibel als auch nicht reversibel sein. Hierzu sei auf die Beispiele von Punkt 3 verwiesen.
 
 \item{Stelleninvarianten / Beschränktheit}\\
 $\forall p \in P$ $I_{P}(p) > 0$ und $I_{P}(p')\geq 0$ $\forall p' \in P$ $\Rightarrow$ p ist beschränkt\\
