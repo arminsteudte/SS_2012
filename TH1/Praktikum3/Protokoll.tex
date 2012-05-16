@@ -143,6 +143,7 @@ Wenn ein Netz reversibel ist, muss es einen Weg von $M_{0} \overset{*}{\rightarr
 Die Umkehrung gilt nicht! Erreichbarkeit $\nRightarrow$ Reversibilität
 
 \item{Erreichbarkeit / Beschränktheit}\\
+\label{erreichbarkeit_beschraenktheit}
 Es gibt keinen Zusammenhang. Da die Erreichbarkeit $\forall t \in T$ ein notwendiges Kriterium dafür ist, dass ein Netz lebendig ist, kann an dieser Stelle auf die Beispiele aus Punkt 2 verwiesen werden.\\
 Ein Netz kann beschränkt sein und alle $t \in T$ sind erreichbar (lebendig) (Abbildung \ref{fig:BL}), beschränkt und nicht alle $t \in T$ sind erreichbar (nicht lebendig) (Abbildung \ref{fig:BnL}), unbeschränkt und alle $t \in T$ sind erreichbar (lebendig) (Abbildung \ref{fig:nBL}) und unbeschränkt und nicht alle $t \in T$ sind erreichbar (nicht lebendig) sein (Abbildung \ref{fig:nBnL}).
 
@@ -159,36 +160,69 @@ Gehören alle $p \in P$ einer solchen positiven Stelleninvariante an $\Rightarro
 Die Umkehrung gilt nicht! Beschränktheit $\nRightarrow$ $\forall p \in P$ gehören positiver Stelleninvariante an
 
 \item{Stelleninvarianten / Erreichbarkeit}\\
+Die Stelleninvariante trifft Aussagen bezüglich der Beschränktheit eines Netzes.
+Wie bereits unter dem Punkt \ref{erreichbarkeit_beschraenktheit} diskutiert wurde, existiert zwischen Beschränktheit und Erreichbarkeit kein direkter Zusammenhang.
+Hierbei sei auch auf die unter dem Punkt referenzierten Beispiele verwiesen.
 
 \item{Transitionsinvarianten / Lebendigkeit}\\
+Zwischen der Transitionsinvariante und Lebendigkeit existiert der Zusammenhang, dass Lebendigkeit $\Rightarrow$ pos. Transitionsinvariante.\\
+Da $N_{M0}$ lebendig ist, wenn $\forall t \in T$ lebendig sind.
+Eine Transition $t \in T$ ist lebendig, wenn sie für alle $M \in EG$ M-erreichbar ist.
+Somit beschreibt die Transitionsinvariante den Zyklus, dass wenn $t$ geschaltet hat es durch geforderte M-Rrreichbarkeit auch wieder schalten kann. 
 
 \item{Transitionsinvarianten / Reversibilität}\\
+Wenn $N_{M0}$ reversibel ist $\exists$ T-Invariante, da es einen Zyklus von $M_{0} \overset{*}{\rightarrow} M  \overset{*}{\rightarrow} M_{0}  \forall M \in EG$ für Reversibilität geben muss.
 
 \item{Transitionsinvarianten / Beschränktheit}\\
+Die Beschränktheit stellt eine notwendige Bedingung für das Vorliegen einer Transitionsinvariante dar.
+Ohne Beschränktheit kann es kein Transitionsinvariante geben, da man von einem beliebigen Markierung dann nicht mehr zur gleichen Markierung im EG zurückkommen kann.
+Es existiert damit keine Schaltsequenz $M \overset{*}{\rightarrow} M$.
 
 \item{Transitionsinvarianten / Erreichbarkeit}\\
+Wie bereits erwähnt folgt aus Lebendigkeit $\Rightarrow$ pos. Transitionsinvariante und Lebendigkeit $\Rightarrow$ Erreichbarkeit. 
+Da für die Lebendigkeit eines Netzes $N_{M0}$ M-Erreichbarkeit $\forall t \in T$ vorausgesetzt wird und aus Lebendigkeit auf das Vorhandensein einer pos. Transitionsinvariante geschlossen werden kann gilt: Positive Transitionsinvariante $\Leftarrow$ Lebendigkeit $\Rightarrow$ Erreichbarkeit.
 
 \item{Transitionsinvarianten / Stelleninvarianten}\\
+Damit eine Transitionsinvariante existieren kann muss das Netzt $N$ mindestens aus einer Transition und einer Stelle bestehen (die Stelle $p_{1}$ stellt die Vor- und Nachbedingung von $t_{1}$ in diesem Fall dar, $\bullet t_{1} = \{p_{1}\}$ und $t_{1} \bullet = \{p_{1}\}$ ).\\
+Da mit dem Vorhandensein einer Stelle auch eine Stelleninvariante existiert gilt: $\exists Transitionsinvariante \Rightarrow \exists Stelleninvariante$
 
 \item{Überdeckungsgraph / Lebendigkeit}\\
+Lebendigkeit baut auf dem EG auf. Ist eine Transition $t \in T$ im EG M-erreichbar, so ist sie auch im UG M-erreichbar.
+Somit ist ein Netz $N$ welches im EG lebendig ist auch im UG lebendig.
 
 \item{Überdeckungsgraph / Reversibilität}\\
+$\exists \omega$-Markierung im UG $\Rightarrow$ EG ist unendlich $\Rightarrow$ Netz ist nicht reversibel, da keine Schaltsequenz $M_{0} \overset{*}{\rightarrow} M_{0}$ existiert.
 
 \item{Überdeckungsgraph / Beschränktheit}\\
+Sind UG und EG identische (keine $\omega$-Markierungen im UG) $\Rightarrow$ das Netz $N$ ist beschränkt.
+$\exists \omega$-Markierung im UG $\Rightarrow$ Netz $N$ ist unbeschränkt.
 
 \item{Überdeckungsgraph / Erreichbarkeit}\\
+Ist eine Transition im EG M-erreichbar, so ist sie auch im UG M-erreichbar. $\exists M \in EG \Rightarrow M \in UG$ ggf. überdeckt durch $\omega$-Markierung.
 
 \item{Überdeckungsgraph / Stelleninvarianten}\\
+$\exists$ P-Invariante dann ist das Netz $N$ beschränkt. 
+Wenn das Netz beschränkt ist sind EG und UG identisch.
+Das bedeutet: $\exists$ P-Invariante $\Rightarrow$ EG=UG.
 
 \item{Überdeckungsgraph / Transitionsinvarianten}\\
+$\exists$ T-Invariante so gibt es einen Zyklus EG.
+Somit existiert dieser Zyklus auch im UG.
 
 \item{Kondensation des EG / Lebendigkeit}\\
+\label{eg_lebendigkeit}
+Besitz der KG des EG mehr als einen Knoten so ist das Netz nicht lebendig, da die Transition t, die zwischen zwei Knoten im Kg schaltet, nicht M-erreichbar ist.\\
+Somit kann die Bedingung für Lebendigkeit ($\forall t \in T$, $t$ ist M-erreichbar) nicht erfüllt sein.
 
 \item{Kondensation des EG  / Reversibilität}\\
+Besitzt eine KG mehr als einen Knoten $\Rightarrow$ das Netz $N$ ist nicht reversibel, da ein Reversibles Netz von jeder Markierung M im EG nach $M_{0}$ schalten kann und somit zu einem Knoten im KG zusammenfällt. 
 
 \item{Kondensation des EG  / Beschränktheit}\\
+Um einen KG aufbauen zu können muss das Netz beschränkt sein. 
+Der EG eines unbeschränkten Netzes ist unendlich, wodurch sich kein KG erstellen lässt. 
 
 \item{Kondensation des EG  / Erreichbarkeit}\\
+KG hat mehr als einen Knoten $\Rightarrow$ nicht alle $t \in T$ sind M-erreichbar (vgl. \ref{eg_lebendigkeit}).
 
 \item{Kondensation des EG  / Stelleninvarianten}\\
 Zwischen der Kondensation des EG (KG) und den Stelleninvarianten eines Netzes gibt es keinen direkten Zusammenhang. 
