@@ -333,11 +333,11 @@ Man kann dem kondensierten Erreichbarkeitsgraphen eines Netzes nicht ansehen, ob
 
 
 \subsection{Wiederholtes Senden von Nachrichten}
-Eine wichtige Funktion des Alternating Bit Protokolls ist das wiederholte Sende von Nachrichten bis zum Eintreffen eines korrespondierenden Acknownledgepakets(-bits).
+Eine wichtige Funktion des Alternating Bit Protokolls ist das wiederholte Senden von Nachrichten bis zum Eintreffen eines korrespondierenden Acknownledgepakets(-bits).
 Die Eigenschaft des wiederholten Sendens entspricht einem Zyklus im EG und ließe sich mit Hilfe von T-Invarianten und ggf. des Kondensierten EG nachweisen.
 
 \subsection{Acknowledge beendet wiederholtes Senden}
-Zum Nachweis dass Acknowledges gesendet werden und es somit zu keinem unendlichen wiederholtem Senden von Paketen kommt, könnte die Eigenschaft der Verklemmungsfreiheit herangezogen werden.
+Zum Nachweis, dass Acknowledges gesendet werden und es somit zu keinem unendlichen wiederholtem Senden von Paketen kommt, könnte die Eigenschaft der Verklemmungsfreiheit herangezogen werden.
 
 \subsection{Verklemmungsfreiheit}
 Das Protokoll gibt einen strikten Ablauf vor, in dem  keine Zustände vorgesehen sind in denen nichts getan wird. Somit muss bei der Modellierung drauf geachtet werden, dass das Netz verklemmungsfrei ist. Das Protokoll definiert kein Ende `"wiederholt diese solange, bis er vom Sender eine Nachricht mit dem anderen Bit, also das nächste Paket erhält"' wodurch es keinen Zustand geben darf in dem keine Transition mehr aktiv ist.
