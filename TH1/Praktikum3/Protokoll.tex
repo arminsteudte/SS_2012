@@ -329,13 +329,26 @@ Man kann dem kondensierten Erreichbarkeitsgraphen eines Netzes nicht ansehen, ob
 
 \end{enumerate}
 
-
 \section{Aufgabe 2}
+
 
 \subsection{Wiederholtes Senden von Nachrichten}
 Eine wichtige Funktion des Alternating Bit Protokolls ist das wiederholte Sende von Nachrichten bis zum Eintreffen eines korrespondierenden Acknownledgepakets(-bits).
 Die Eigenschaft des wiederholten Sendens entspricht einem Zyklus im EG und ließe sich mit Hilfe von T-Invarianten und ggf. des Kondensierten EG nachweisen.
+
+\subsection{Acknowledge beendet wiederholtes Senden}
 Zum Nachweis dass Acknowledges gesendet werden und es somit zu keinem unendlichen wiederholtem Senden von Paketen kommt, könnte die Eigenschaft der Verklemmungsfreiheit herangezogen werden.
+
+\subsection{Verklemmungsfreiheit}
+Das Protokoll gibt einen strikten Ablauf vor, in dem  keine Zustände vorgesehen sind in denen nichts getan wird. Somit muss bei der Modellierung drauf geachtet werden, dass das Netz verklemmungsfrei ist. Das Protokoll definiert kein Ende `"wiederholt diese solange, bis er vom Sender eine Nachricht mit dem anderen Bit, also das nächste Paket erhält"' wodurch es keinen Zustand geben darf in dem keine Transition mehr aktiv ist.
+
+\subsection{Senden von beliebig vielen Nachrichten}
+Das Protokoll soll beliebe Nachrichtenfolgen ermöglichen.
+Hierzu ist es wichtig, dass das Protokoll wieder in seinen Anfangszustand gelangen kann, so dass wieder eine Nachricht mit positivem und negativem Bit gesendet werden kann.
+Nachweisen ließen sich dies mittels der Reversibilität des Netzes.
+
+\subsection{Funktionstüchtigkeit trotz Nachrichtenverlust}
+Da bei der Übertragung beliebig viele Nachrichten verloren gehen können, muss dafür gesorgt werden, dass das zu erstellende Netz lebendig ist. Dadurch wird sichergestellt, dass alle Transition aus allen Markierungen heraus irgendwann einem schalten können, da für die Lebendigkeit gilt: $\forall t \in T : \text{t ist M-erreichbar}$. Das Netz darf bei einem Nachrichtenverlust nicht aufhören Nachrichten zu senden, solange bis die Bestätigungsnachricht mit dem invertieren Kontrollbit ankommt.
 
 \end{document}
 
