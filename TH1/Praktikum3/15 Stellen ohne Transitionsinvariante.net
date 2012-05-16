@@ -45,7 +45,7 @@
          target = "t1"/>
     <arc id = "a2"
          source = "t1"
-         target = "p2"/>
+         target = "p1"/>
     <toolspecific tool = "netlab"
                   version = "1.8">
       <developer_release version = "1,8,0,0"
