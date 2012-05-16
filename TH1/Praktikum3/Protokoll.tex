@@ -225,29 +225,109 @@ Der EG eines unbeschränkten Netzes ist unendlich, wodurch sich kein KG erstelle
 KG hat mehr als einen Knoten $\Rightarrow$ nicht alle $t \in T$ sind M-erreichbar (vgl. \ref{eg_lebendigkeit}).
 
 \item{Kondensation des EG  / Stelleninvarianten}\\
+Zwischen der Kondensation des EG (KG) und den Stelleninvarianten eines Netzes gibt es keinen direkten Zusammenhang. 
+Ein Netz muss beschränkt sein, damit der KG erzeugt werden kann, was bei unbeschränkten Netzen nicht der Fall ist. Daraus folgt:\\
+Netz ist unbeschränkt $\Rightarrow$ EG kann nicht erzeugt werden.
 
 \item{Kondensation des EG  / Transitionsinvarianten}\\
+Zwischen der Kondensation des EG (KG) und den Transitionsinvarianten eines Netzes gibt es keinen Zusammenhang. Zwar zeigen die einzelnen Komponenten des KG Zyklen des Netzes, doch können diese Komponenten auch Senken im Netz sein. Das ist allein aus den Komponenten nicht ersichtlich. Verwiesen sei hier auch die Beispiele von Punkt 36 bei dem wir sowohl Netze mit als auch ohne Transitionsinvarianten haben (Abbildung \ref{fig:VKGN} und \ref{fig:nVKGN}) und die KGs gleich aussehen.
 
 \item{Kondensation des EG  / Überdeckungsgraph}\\
+Die Kondensation des EG (KG) und der Überdeckungsgraph (UG) bauen beide auf dem Erreichbarkeitsgraphen (EG) des Netzes auf. Der UG wird genutzt um endliche Netze zu erhalten, wenn der EG eines Netzes aufgrund der Unbeschränktheit unendlich groß wird und der KG zeigt Zyklen im Netz auf und fasst diese zu Komponenten zusammen.
 
 \item{Verklemmung / Lebendigkeit}\\
+Verklemmung $\Rightarrow$ nicht lebendig\\
+Für die Lebendigkeit eines Netzes gilt $\forall t \in T$ sind M-Erreichbar, d.h. man kann von jeder Markierung $M \in EG$ jede Transition irgendwann einmal schalten. Da wird bei einer Verklemmung in einen Zustand M gelangen in dem keine Transition mehr aktiviert ist, wird die Bedingung für die Lebendigkeit nicht erfüllt und das Netz kann nicht lebendid sein.
+Die Umkehrung gilt nicht! nicht lebendig $\nRightarrow$ Verklemmung
 
 \item{Verklemmung / Reversibilität}\\
+Verklemmung $\Rightarrow$ nicht reversibel\\
+Gelangt das Netz in einen Zustand in dem es keine aktivierten Transitionen mehr gibt, liegt eine Verklemmung vor. Da keine Transition mehr schalten kann, hat das Netz keine Möglichkeit wieder in seinen Ursprungszustand zurückzukehren. Die Bedingung $M_{0} \overset{*}{\rightarrow} M \overset{*}{\rightarrow} M_{0}$ für die Reversibilität ist verletzt.
 
 \item{Verklemmung / Beschränktheit}\\
+Zwischen Verklemmung und Beschränktheit gibt es keinen Zusammenhang. An dieser Stelle sei auf die Beispiele aus Punkt 34 verwiesen. Dort ist ein beschränktes Netz mit Verklemmung (Abbildung \ref{fig:SV}) und ohne Verklemmung (Abbildung \ref{fig:SoV}), sowie ein unbeschränktes Netz mit Verklemmung (Abbildung \ref{fig:oSV}) und ohne Verklemmung (Abbildung \ref{fig:oSoV}) dargestellt.
 
 \item{Verklemmung / Erreichbarkeit}\\
+Es gilt Verklemmung $\Rightarrow$ Netz ist nicht lebendig (siehe Punkt 29) und aus dieser nicht Lebendigkeit des Netzes folgt: $\exists t \in T$ für das Gilt t ist nicht M-Erreichbar. Durch diese transitive Abhängigkeit lässt sich folgern:\\
+Verklemmung $\Rightarrow$ $\exists t \in T :\text{t ist nicht M-Erreichbar}$
 
 \item{Verklemmung / Stelleninvarianten}\\
+Zwischen Stelleninvarianten und Verklemmungen gibt es keinen Zusammenhang. Man kann sowohl ein Netz bauen, das eine Stelleninvariante besitzt und eine Verklemmung hat (Abbildung \ref{fig:SV}), keine Stelleninvariante besitzt und eine Verklemmung hat (Abbildung \ref{fig:oSV}) oder mit Stelleninvariante verklemmungsfrei ist (Abbildung \ref{fig:SoV}) bzw. ohne Stelleninvariante verklemmungsfrei ist (Abbildung \ref{fig:oSoV}).
+
+\begin{figure}
+\begin{minipage}[hbt]{7cm}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/33_Stelleninvariante_mit_Verklemmung.png}
+	\caption{Netz mit S-Invariante und mit Verklemmung}
+	\label{fig:SV}
+\end{minipage}
+\hfill
+\begin{minipage}[hbt]{7cm}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/33_ohne_Stelleninvariante_mit_Verklemmung.png}
+	\caption{Netz ohne S-Invariante und mit Verklemmung}
+	\label{fig:oSV}
+\end{minipage}
+\end{figure}
+\begin{figure}
+\begin{minipage}[hbt]{7cm}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/33_Stelleninvariante_ohne_Verklemmung.png}
+	\caption{Netz mit S-Invariante und ohne Verklemmung}
+	\label{fig:SoV}
+\end{minipage}
+\hfill
+\begin{minipage}[hbt]{7cm}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/33_ohne_Stelleninvariante_ohne_Verklemmung.png}
+	\caption{Netz ohne S-Invariante und ohne Verklemmung}
+	\label{fig:oSoV}
+\end{minipage}
+\end{figure}
 
 \item{Verklemmung / Transitionsinvarianten}\\
+Liegt eine positive Transitionsinvariante vor, so gilt $\forall t \in T : I_{T}(t)\geq1$. Das heißt alle Transitionen schalten mindestens einmal. Daraus folgt, dass auch die Transition die zu einer Verklemmung führen müsste schaltet. Da die Transitionsinvariante jedoch Zyklen im Netz beschreibt, kann es nicht zu keiner Verklemmung kommen, da die T-Invariante beliebig oft schalten kann.\\
+positive T-Invariante $\Rightarrow$ keine Verklemmung 
 
 \item{Verklemmung / Überdeckungsgraph}\\
+Wenn $\exists M \in UG$ für das gilt $\forall t \in T$ sind nicht aktiviert $\Rightarrow$ Verklemmung\\
+Gibt es im UG eine Markierung M für die gilt, dass keine Transition aktiviert ist und schalten kann, liegt eine Verklemmung vor und der Zustand kann nicht mehr verlassen werden.
 
 \item{Verklemmung / Kondensation des EG}\\
+Man kann dem kondensierten Erreichbarkeitsgraphen eines Netzes nicht ansehen, ob das Netz verklemmt ist oder nicht. Abbildung \ref{fig:VKGN} zeigt ein Netz mit Verklemmung und den dazugehörigen KG in Abbildung \ref{fig:VKGG}. Dieser KG ähnelt dem des nicht verklemmten Netzes aus Abbildung \ref{fig:nVKGN} mit dem KG aus Abbildung \ref{fig:nVKGG}.
+
+\begin{figure}
+\begin{minipage}[hbt]{7cm}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/36_Verklemmung_KG_Netz.png}
+	\caption{Netz mit Verklemmung}
+	\label{fig:VKGN}
+\end{minipage}
+\hfill
+\begin{minipage}[hbt]{7cm}
+	\centering
+	\includegraphics[height=0.5\textwidth]{Bilder/36_Verklemmung_KG_Graph.png}
+	\caption{EG des Netzes mit Verklemmung}
+	\label{fig:VKGG}
+\end{minipage}
+\end{figure}
+\begin{figure}
+\begin{minipage}[hbt]{7cm}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/36_keine_Verklemmung_KG_Netz.png}
+	\caption{Netz ohne Verklemmung}
+	\label{fig:nVKGN}
+\end{minipage}
+\hfill
+\begin{minipage}[hbt]{7cm}
+	\centering
+	\includegraphics[height=0.5\textwidth]{Bilder/36_keine_Verklemmung_KG_Graph.png}
+	\caption{EG des Netzes ohne Verklemmung}
+	\label{fig:nVKGG}
+\end{minipage}
+\end{figure}
 
 \end{enumerate}
-\textbf{Reversibilität / Lebendigkeit}
 
 
 \section{Aufgabe 2}
